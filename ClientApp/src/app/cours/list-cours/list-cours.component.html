@@ -1,0 +1,91 @@
+
+<div class="grid-container"> 
+  <h3>Les cours</h3>
+  <div style="display:flex;align-items: baseline;">
+      <div>
+            <button style="background:#06955D;color:rgb(246, 253, 251)" mat-raised-button color="primary" class="classAdd" (click)="addQNewCours()" >Ajouter</button>
+      </div>
+      
+    
+      <div style="margin-left: auto; align-items: baseline; display:flex;   border-radius: 15px;border: 1px solid grey;height: 25px;">      
+          <div></div>
+          <div style="padding-left: 12%;">
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+          </div>    
+      </div>
+  </div>
+
+<div style="display:flex;align-items: baseline;">
+  <div style="display:flex; align-items: baseline;">
+      <div class="rond"></div>
+      <div style="padding: 10px;">
+          <label style="color:gray;font-style: italic;font-family: Roboto;font-size: 14px;">Nouveau</label>
+      </div>
+  </div>
+
+  <div style="display:flex;padding: 10px; align-items: baseline;">
+      <div class="rond1"></div>
+      <div>
+          <label style="color:gray;font-style: italic;font-family: Roboto;font-size: 14px;">En Cour</label>
+      </div>
+  </div>
+
+  <div style="display:flex; align-items: baseline;">
+      <div class="rond2"></div>
+      <div>
+          <label style="color:gray;font-style: italic;font-family: Roboto;font-size: 14px;">Terminé</label>
+      </div>
+  </div>
+</div>
+
+      <div >
+          <mat-table [dataSource]="dataSourceP" class="mat-elevation-z8">
+            <ng-container matColumnDef="text">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:gray">Intitulé du Cour</h3></mat-header-cell>
+              <mat-cell *matCellDef="let qst">
+                    <div *ngIf="qst.StatusCours_Id ===1" class="rond"></div>
+                    <div *ngIf="qst.StatusCours_Id ===2" class="rond1"></div>
+                    <div *ngIf="qst.StatusCours_Id ===3" class="rond2"></div> {{qst.Cours_Title}} 
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="categorie">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:gray">Type de Cour</h3></mat-header-cell>
+              <mat-cell *matCellDef="let qst"> {{qst.Cours_Title}}  </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="NEXpert">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:gray">Nom de l'expert</h3></mat-header-cell>
+              <mat-cell *matCellDef="let qst">{{qst.Cours_Createur}}  </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="dateDEb">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:gray">Date d'ajout</h3></mat-header-cell>
+              <mat-cell *matCellDef="let qst"> {{qst.Date_Ajout |date}}  </mat-cell>
+            </ng-container>
+            
+
+            
+            <ng-container matColumnDef="ac1">
+                  <mat-header-cell *matHeaderCellDef > </mat-header-cell>
+                  <mat-cell *matCellDef="let qst"  >
+                        <button mat-icon-button matTooltip ="Détails" style="color:#02a365ad" (click)="ShowdetailsC(qst.Cours_Id)" >
+                                <img src="/assets/img/ICONS_Website/ICONES/view.svg" style="width: 50%;">
+                          </button>
+                          <button mat-icon-button  matTooltip ="Supprimer" style="color: #dd1155"  (click)="deleteCours(qst)"  >
+                                <img src="/assets/img/icons_UBCI_Enseignant/delete.png">
+                          </button>
+                          <button mat-icon-button  matTooltip ="Editer"   (click)="EditerCours(qst)"  >
+                            <img src="/assets/img/ICONS_Website/ICONES/edit.svg" style="width: 50%;">
+                         </button>
+                     
+                          
+                  </mat-cell>
+                </ng-container>
+              
+                 
+            <mat-header-row style="background:  #f1f1f1" *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row [@rowsAnimation]=""  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+        </div>
+      
+      

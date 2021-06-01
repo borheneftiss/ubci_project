@@ -1,0 +1,48 @@
+
+<div class="item item-1 boxinput">
+  <!--  <p  class="mat-subheading-2 center">
+        Créez un question.
+      </p>-->
+  <h1 style="color:#06955D">Créez un question</h1>
+ 
+
+    <!--Form QST-->
+    <form [formGroup]="questionForm" (ngSubmit)="onSubmit()" class="form">
+      <!--Name-->
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Text" value="" formControlName="Text" [errorStateMatcher]="matcher" required>
+      </mat-form-field>
+      <!--Type-->
+      
+        
+        <mat-form-field class="full-width">
+            <mat-label>Type</mat-label>
+            <mat-select #fontSize value="16px" formControlName="Type" required >
+              <mat-option value="Text">Text</mat-option>
+              <mat-option value="Radio">Radio</mat-option>
+              <mat-option value="Checkbox">Checkbox</mat-option>
+            
+              <mat-option value="Notation">Notation</mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+       <!--Status-->
+     
+        <mat-form-field class="full-width">
+            <mat-label>Satut</mat-label>
+            <mat-select #fontSize value="16px" formControlName="Status" required>
+                <mat-option *ngFor="let st of Status" [value]="st.Text">
+                    {{st.Text}}
+                  </mat-option>
+              
+            </mat-select>
+          </mat-form-field>
+        <!--Description-->
+       
+    
+       <!--Submit button-->
+    <button mat-raised-button type="submit" style="background: #d0c310;float: right;" color="primary" [disabled]="!questionForm.valid">Enregistrer</button>
+    <button mat-raised-button type="reset"   style="background: #d0c310" color="primary" (click)="onClose()">Annuler</button>
+    </form>
+
+</div>

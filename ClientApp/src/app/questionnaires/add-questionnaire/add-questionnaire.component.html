@@ -1,0 +1,59 @@
+
+<div class="item item-1 boxinput">
+  <!--  <p  class="mat-subheading-2 center" align="center">
+        Créez votre questionnaire
+      </p>-->
+    <h1 style="color:#77bb44; margin-left:15%">Créez votre questionnaire</h1>
+
+   <mat-card style="max-width:100%" class="center">
+    <!--Form QST-->
+    <form [formGroup]="QSTForm" (ngSubmit)="onSubmit()" class="form">
+      <!--Name-->
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Titre" value="" formControlName="Name" [errorStateMatcher]="matcher">
+     
+      </mat-form-field>
+      <!--Type-->
+      <mat-form-field class="full-width">
+          <input matInput placeholder="Type" value=""  formControlName="Type" [errorStateMatcher]="matcher">
+       
+        </mat-form-field> 
+        <!--DatePublication-->
+        
+        <mat-form-field class="full-width">
+            <input matInput [matDatepicker]="picker1" placeholder="Date de Publication" formControlName="StartPublication">
+            <mat-datepicker-toggle style="color:#99cc33" matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker  #picker1 [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+        <!--DateFin-->
+        <mat-form-field class="full-width" >
+            <input matInput [matDatepicker]="pickerF" placeholder="Date de Fin" formControlName="EndPublication">
+            <mat-datepicker-toggle style="color:#99cc33" matSuffix [for]="pickerF"></mat-datepicker-toggle>
+            <mat-datepicker  #pickerF [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+        
+       
+       <!--Status-->
+       <mat-form-field class="full-width">
+          <mat-label>Satut</mat-label>
+          <mat-select #fontSize value="16px" formControlName="Status_Id" >
+              <mat-option *ngFor="let st of Status" [value]="st.Value">
+                  {{st.Text}}
+                </mat-option>
+            
+          </mat-select>
+        </mat-form-field>
+        <!--Description-->
+       
+        <mat-form-field class="full-width">
+            
+            <textarea matInput placeholder="Description" value=""  formControlName="Description"></textarea>
+        </mat-form-field>
+       <!--Submit button-->
+    <button mat-raised-button type="submit" style="background: #99cc33;float: right;" color="primary">Enregistrer</button>
+    <button mat-raised-button type="reset"  style="background: #ffcc33" color="primary">Annuler</button>
+    </form>
+   
+ </mat-card>
+
+</div>

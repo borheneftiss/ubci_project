@@ -1,0 +1,58 @@
+<mat-toolbar class="toolbar" style="background-color: #285a4f;">
+  <div><img style="width:95px;" src="assets/img/icone_menu_dashboard/logo.svg" routerLink="/home"></div>
+ 
+      
+      <!-- <div><button mat-menu-item (click)="Logout()" routerLinkActive="active"><img src="assets/img/logout.png" style="height: 20px;">Logout</button></div> -->
+      
+     
+      
+        
+
+</mat-toolbar>
+
+<div class="grid-container"> 
+  
+    <h1 style="color:#06955D">Liste des Messages </h1>
+  
+      <div >
+          
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+          </mat-form-field>
+  
+          <mat-table [dataSource]="dataSourceM" class="mat-elevation-z8">
+            
+            <ng-container matColumnDef="Nom">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Nom</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.Contact_Nom}} {{user.Contact_Nom}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Email">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Email</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.Contact_Email }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Téléphone">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Message</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.Cors_Message}} </mat-cell>
+            </ng-container>
+           
+            
+           
+               
+                    <ng-container matColumnDef="ac3">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let user">
+                          <button mat-icon-button matTooltip ="Envoyer" style="color:#02a365ad" (click)="ShowMessagePopup(user)" >
+                              <mat-icon aria-label="Edit">details</mat-icon>
+                            </button>
+                             
+                      </mat-cell>
+                    </ng-container>
+                 
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+        </div>
+      
+      

@@ -1,0 +1,72 @@
+
+<div class="grid-container"> 
+  
+
+    <div id="grid" style="border-bottom: 2px solid #dcddde;z-index: 1;padding: 2%" >
+        <div id="areaA">
+            <div class="grid-container">
+                <div>
+                    <label class="label_Title">Intitulé du Cours</label><br>
+                    <label class="label_resp">{{cours.Cours_Title}}</label>
+                </div>
+
+                <div style="padding-top: 3%;">
+                    <label class="label_Title">Type de Cours</label><br>
+                    <label class="label_resp">{{cours.Cours_Type}}</label>
+                </div>
+
+                <div style="padding-top: 3%;">
+                    <label class="label_Title">Description</label><br>
+                    <label class="label_resp">{{cours.Cours_Description}}</label>
+                </div>
+
+               
+
+
+
+
+            </div>
+          </div>
+          </div>
+    <h3 style="color:grey">Liste des documents</h3>
+  
+      
+
+          <div >
+              <mat-table [dataSource]="dataSourcefile" class="mat-elevation-z8">
+                <ng-container matColumnDef="text">
+                  <mat-header-cell *matHeaderCellDef><h3 style="color:gray">Nom du document</h3></mat-header-cell>
+                  <mat-cell *matCellDef="let qst"> {{qst.File_Path}} </mat-cell>
+                </ng-container>
+                
+                
+    
+                
+                <ng-container matColumnDef="ac1">
+                      <mat-header-cell *matHeaderCellDef > </mat-header-cell>
+                      <mat-cell *matCellDef="let qst"  >
+                            <button *ngIf="qst.File_Type !='video'" mat-icon-button matTooltip ="Télécharger" style="color:#02a365ad" (click)="downloadFile(qst.File_Path)" >
+                                    <img src="/assets/img/ICONS_Website/ICONES/download.svg" style="width: 60%;" >
+                              </button>
+                             
+                              <button *ngIf="qst.File_Type ==='video'" mat-icon-button matTooltip ="Vidéo" style="color:#02a365ad" (click)="ShowVideo(qst.File_Path)" >
+                                    <img src="/assets/img/ICONS_Website/ICONES/view.svg" style="width: 60%;">
+                               
+                              </button>
+                      </mat-cell>
+                    </ng-container>
+                  
+                     
+                <mat-header-row style="background: lightgray" *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row   *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+             
+            </div>
+  
+         
+         
+      
+     
+        
+      
+      

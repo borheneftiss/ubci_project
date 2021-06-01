@@ -1,0 +1,66 @@
+
+<div class="grid-container"> 
+  
+  <h3 style="color:grey">Liste des Projets</h3>
+
+    <div >
+        <button style="background:#06955D;color:rgb(246, 253, 251)" mat-raised-button color="primary" class="classAdd" (click)="addQNewProject()" >Ajouter</button>
+    
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+        </mat-form-field>
+
+        <mat-table [dataSource]="dataSourceP" class="mat-elevation-z8">
+          <ng-container matColumnDef="text">
+            <mat-header-cell *matHeaderCellDef><h3 style="color:grey">Titre</h3></mat-header-cell>
+            <mat-cell *matCellDef="let qst"> {{qst.Projet_Name}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="categorie">
+            <mat-header-cell *matHeaderCellDef><h3 style="color:grey">Catégorie</h3></mat-header-cell>
+            <mat-cell *matCellDef="let qst"> {{qst.Categorie}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="dateDEb">
+            <mat-header-cell *matHeaderCellDef><h3 style="color:grey">Date début</h3></mat-header-cell>
+            <mat-cell *matCellDef="let qst"> {{qst.Projet_Date_Debut |date}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="dateDCloture">
+            <mat-header-cell *matHeaderCellDef><h3 style="color:grey">Date de clôture</h3></mat-header-cell>
+            <mat-cell *matCellDef="let qst"> {{qst.Projet_Date_Cloture |date}} </mat-cell>
+          </ng-container>
+          
+          <ng-container matColumnDef="ac1">
+                <mat-header-cell *matHeaderCellDef [ngClass]="'customWidthClass'"> </mat-header-cell>
+                <mat-cell *matCellDef="let qst"  [ngClass]="'customWidthClass'"> 
+                        <!-- <button mat-icon-button  matTooltip ="Supprimer" style="color: #dd1155"  (click)="deleteProject(qst)"  >
+                            <mat-icon aria-label="delete">delete</mat-icon>
+                        </button> -->
+                        <img src="/assets/img/ICONS_Website/eye.png">
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="ac2">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let qst">
+                        <!-- <button mat-icon-button matTooltip ="Editer" style="color: #ffcc33" (click)="Editproject(qst)" >
+                            <mat-icon aria-label="Edit">edit</mat-icon>
+                          </button> -->
+                          <img src="/assets/img/ICONS_Website/impression.png">
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="ac3">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let qst">
+                        <!-- <button mat-icon-button matTooltip ="Détails" style="color:#02a365ad" (click)="AddQuestByProject(qst)" >
+                            <mat-icon aria-label="Edit">details</mat-icon>
+                          </button> -->
+                          <img src="/assets/img/ICONS_Website/download.png"> 
+                    </mat-cell>
+                  </ng-container>
+               
+          <mat-header-row style="background: lightgray" *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row [@rowsAnimation]=""  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+      </div>
+    
+    

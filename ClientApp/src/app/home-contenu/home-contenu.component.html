@@ -1,0 +1,257 @@
+<div class='header' >
+    <div class='photo'>
+      <img class="bg" style="position: relative;" src='assets/img/background-small.png'
+           srcset='assets/img/background-big.png 2000w,
+           assets/img/background-small.png 1000w'
+           sizes='(min-width: 960px) 960px,
+                  100vw' heights="(min-width:500px) 200px, 80%"/>
+    
+    <div class="barre-media">
+        <div class="innovat-inscription col l4 m6 s12" >
+            <div style="text-align:left;">
+            
+                
+            <img class="challenge" src="/assets/img/innovact-challenge.svg"   />  
+            </div>
+            
+            <!--<p style="text-align:center; font-size:20px;font-family:openlight;margin-top: 3px;">-->
+             <!--<button *ngIf="!auth.isLoggednIn()" mat-button class="btn-inscription"   (click)="ShowModalInscription()">INSCRIVEZ-VOUS</button>-->
+            <!--<button *ngIf="auth.isLoggednIn() && !checked" mat-button class="btn-inscription"   (click)="ShowModalResultat()">VOIR ME RESULTAT</button>-->
+            <!--<button *ngIf="checked" mat-button class="btn-inscription"   (click)="ShowModalQuiz()">PASSEZ LE TEST</button>-->
+           
+            <!--</p>           -->
+        </div>
+        </div>
+
+    </div>
+  </div>
+  <!--<div class="responsive" style="background-image: url('assets/img/vert_bg.png');height:430px">
+    
+    
+    <div class="row">
+    <div class="innovat-inscription col l4 m6 s12" >
+        <p style="text-align:center;">
+        <img src="/assets/img/challenge.svg" style="width: 50%;   margin-top: 100px;"  />  
+        </p>
+        <p style="text-align:center; font-size:20px;font-family:openlight;margin-top: 3px;">
+            <button mat-raised-button class="btn-inscription" style="width: 60%;"  (click)="ShowModalInscription()">INSCRIVEZ-VOUS</button>
+        </p>           
+    </div>
+    </div>    
+  </div>-->
+       
+        
+      
+        
+            
+          <div class="row" style="margin-bottom:0px;height:200px;width:100%;background-color: #eeeeee52">
+          <div  class="col l2 m12 s12 innovact-accueil" style="transform: rotate(-90deg);margin-top:2%">
+                <div>
+                    <b class="innovact">INNOVACT</b>
+                </div>
+                <div>
+                    <p style="font-weight:700;margin: 0px;font-family: 'openthin';font-size: 20px;">ACCEUIL</p>
+                </div>
+                       
+                       
+              
+            </div>
+            
+              <div class="col l10 m12 s12" style="margin-left: auto;margin-right: auto;margin-top: 30px;">
+                  
+                <div class="text-accueil"style="width: 80%;margin-left: 0px;margin-right: auto">
+                  <h1 class="h-connect">Vous êtes étudiant, motivé, doué<br/>
+                      et aimez le goût du challenge ?</h1>
+                    
+                  
+                </div>
+                    <br>
+                    <br>
+                </div>
+              </div>
+                
+                <div style="width: 100%;margin-left: auto;margin-right: auto;background-color:#f7f7f7">
+                    <div style="padding-bottom:40px;width:50%;margin-left: auto;margin-right: auto;">
+                    <div class="row" style="margin-bottom:0px">
+                        <div class="col l3 m6 s12" style="padding: 26px">
+                            <div class="theme" style=" background-color: #3f7797 !important">
+                                <img  (click)="ShowModalTheme()" alt="Theme"  class="image_table"  src="/assets/img/1.svg"  >
+                                <label class="label-style">4 TH&Egrave;MES</label>
+                              </div>
+                        </div>
+                        <div class="col l3 m6 s12" style="padding: 26px">
+                            <div class="theme" style=" background-color: #399796 !important">
+                                <img (click)="ShowModalCalenderier()" alt="semaine" class="image_table" src="/assets/img/2.svg">
+                                <label class="label-style">6 SEMAINES</label>
+                              </div>
+                        </div>
+                        <div class="col l3 m6 s12" style="padding: 26px">
+                            <div class="theme" style=" background-color: #e99153 !important">
+                                <img (click)="ShowModalEquipe()" alt="Equipe" class="image_table" src="/assets/img/3.svg"  >
+                                <label class="label-style">10 &Eacute;QUIPES</label>
+                            </div>
+                        </div>
+                        <div class="col l3 m6 s12" style="padding: 26px">
+                            <div class="theme" style=" background-color: #d9d719 !important">
+                                <img (click)="ShowModalPrix()" alt="Prix" class="image_table" src="/assets/img/4.svg"  >
+                                <label class="label-style">3 PRIX</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+             
+                
+            
+              <!--Calenderier-->
+<!--Calenderier-->
+<div  class="row" style="width:100%;background-color: #fff;margin-bottom: 0px;padding-top: 10px;">
+        
+          <div  class="col l2 m12 s12 innovact-calender" style="transform: rotate(-90deg);margin-top:2%">
+                <div>
+                    <b class="innovact">INNOVACT</b>
+                </div>
+                <div>
+                    <p style="font-weight:700;margin: 0px;font-family: 'openthin';font-size: 20px;">CALENDRIER</p>
+                </div>
+                       
+                       
+              
+            </div> 
+<div class="col l10 m12 s12" class="calender">
+            <div class="dates" style="display:flex;flex-direction: column;margin-left: auto;margin-right: auto;width: 70%;">
+            <div >
+              <div >
+                  <div class="row">
+                       <div class="col l2 m6 s12">
+                           <div class="calender-icon">
+                                <div class="icon_plan">
+                                <img class="calender-icon-item" alt="calendar" src="/assets/img/icone_calendar/megaphone.svg">
+                                </div>
+                           </div>
+                            
+                       </div>
+                       
+                       <div class="theme_right col l10 m6 s12">
+                          <div class="calender-date">
+                              <b style="font-family: 'cadeauFont';font-size: 23px">11.10.18</b>
+                          </div>
+                          <div>
+                              <p class="description">Ouverture des inscriptions pour les étudiants</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="row">
+                        <div class="col l2 m6 s12">
+                            <div class="calender-icon">
+                                    <div class="icon_plan">
+                             <img class="calender-icon-item" alt="calendar danger" src="/assets/img/icone_calendar/danger.svg">
+                        </div>  </div>
+                     </div>                
+                        <div class="theme_right col l10 m6 s12">
+                           <div class="calender-date">
+                               <b style="font-family: 'cadeauFont';font-size: 23px">28.10.18</b>
+                           </div>
+                           <div>
+                               <p class="description">Clôture des inscriptions</p>
+                           </div>
+                       </div>
+                </div>  
+                  <div class="row">
+                        <div class="col l2 m6 s12">
+                                <div class="calender-icon">
+                                        <div class="icon_plan">
+                                 <img class="calender-icon-item" alt="meeting" src="/assets/img/icone_calendar/meeting.svg">
+                            </div>  </div>
+                    </div>                
+                        <div class="theme_right col l10 m6 s12">
+                           <div class="calender-date">
+                               <b style="font-family: 'cadeauFont';font-size: 23px">31.10.18</b>
+                           </div>
+                           <div>
+                               <p class="description">Cérémonie d’ouverture du Challenge Innovact</p>
+                           </div>
+                       </div>
+                </div>  
+                 
+                  
+                <div class="row">
+                        <div class="col l2 m6 s12">
+                                <div class="calender-icon">
+                                        <div class="icon_plan">
+                                 <img class="calender-icon-item" alt="team leader" src="/assets/img/icone_calendar/team-leader.svg">
+                            </div>  </div>
+                     </div>                 
+                        <div class="theme_right col l10 m6 s12">
+                           <div class="calender-date">
+                               <b style="font-family: 'cadeauFont';font-size: 23px">Le 1<sup>er</sup> & le 2 Novembre 2018 </b>
+                           </div>
+                           <div>
+                               <p class="description">Rencontre des équipes et team building </p>
+                           </div>
+                       </div>
+                </div>
+                
+                <div class="row">
+                        <div class="col l2 m6 s12">
+                                <div class="calender-icon">
+                                        <div class="icon_plan">
+                                 <img class="calender-icon-item" alt="class room" src="/assets/img/icone_calendar/classroom.svg">
+                            </div>  </div>
+                      </div>                
+                        <div class="theme_right col l10 m6 s12">
+                           <div class="calender-date">
+                               <b style="font-family: 'cadeauFont';font-size: 23px">Chaque vendredi du 09.11.18 au 07.12.2018</b>
+                           </div>
+                           <div>
+                               <p class="description">Participation au programme Challenge Innovact 
+                                (formation, rencontre avec des experts...)</p>
+                           </div>
+                       </div>
+                </div>
+                
+                <div class="row">
+                        <div class="col l2 m6 s12">
+                                <div class="calender-icon">
+                                        <div class="icon_plan">
+                                 <img class="calender-icon-item" alt="class romm"  src="/assets/img/icone_calendar/classroom_con.svg">
+                            </div>  </div>
+                      </div>                
+                        <div class="theme_right col l10 m6 s12">
+                           <div class="calender-date">
+                               <b style="font-family: 'cadeauFont';font-size: 23px">12.12.18</b>
+                           </div>
+                           <div>
+                               <p class="description">Formation et répétition pour la préparation du pitch final</p>
+                           </div>
+                       </div>
+                </div>
+                <div class="row">
+                    <div class="col l2 m6 s12">
+                            <div class="calender-icon">
+                                    <div class="icon_plan">
+                             <img class="calender-icon-item" alt="calendar item" src="/assets/img/icone_calendar/trophy.svg">
+                        </div>  </div>
+                </div>                
+                    <div class="theme_right col l10 m6 s12">
+                       <div class="calender-date">
+                           <b style="font-family: 'cadeauFont';font-size: 23px">13.12.18</b>
+                       </div>
+                       <div>
+                           <p class="description">Pitch Jury, sélection des 3 équipes gagnantes et cérémonie de clôture</p>
+                       </div>
+                   </div>
+            </div>
+              </div>
+              
+             
+            </div>
+          
+          </div></div></div>
+      <!--timeline-->
+      
+     
+       <!--footer-->
+       <app-navbar></app-navbar>
+              

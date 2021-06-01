@@ -1,0 +1,181 @@
+<app-navbar-qst></app-navbar-qst>
+<div class="boxinput">
+  <mat-card style="margin-top: 5%;">
+    <h1 class="title">
+      Bienvenue {{user.User_Name}} {{user.User_LastName}}
+    </h1>
+    <h2 class="title">
+      {{questionnaire.Name}}
+    </h2>
+    <div class="row" style="width:80%">
+      <div class="col l6 m6 s12" style="text-align: center;color: #285a4f;">
+        <img src="/assets/img/time.svg" style="width: 20%">
+        <h3>Il dure moins de 6 minutes </h3>
+      </div>
+      <div class="col l6 m6 s12" style="text-align: center;color: #285a4f;float:right">
+        <img style="width: 27%" src="/assets/img/honete.svg">
+        <h3>Répondez avec honnêteté </h3>
+      </div>
+
+    </div>
+    <div class="row">
+      <mat-progress-bar class="example-margin" style="width:100%" [value]="value"></mat-progress-bar>
+    </div>
+
+    <mat-horizontal-stepper #stepper>
+     
+      <mat-step label="1">
+        <h3>Vous faites partie des personnes qui:</h3>
+        <mat-list>
+
+
+          <mat-list-item *ngFor="let qst of listQSt;index as i">
+            <div class="row" *ngIf="i <9">
+              <h4>{{qst.Text}} </h4>
+              <div *ngIf="qst.Type ==='Radio'" class="row">
+                <div class="row">
+                  <!--one reponse-->
+
+                  <mat-radio-group class="example-radio-group" required>
+                    <mat-radio-button class="example-radio-button" [value]="reponse.Response_ID" *ngFor="let reponse of getListResponse(qst.Question_ID)"
+                      (click)="getValue(reponse.Response_ID)">
+                      {{reponse.Text}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+
+                </div>
+              </div>
+              <mat-divider class="divder"></mat-divider>
+              <div *ngIf="qst.Type ==='Checkbox'">
+                <!--multiple reponse-->
+              </div>
+              <div *ngIf="qst.Type ==='Text'">
+                <!--text reponse-->
+              </div>
+            </div>
+          </mat-list-item>
+
+        </mat-list>
+
+        <div class="row" style="margin-top: 4%;">
+
+          <button mat-button matStepperNext style="color:white;background-color: #10623f" (click)="Progress(1)">Suivant</button>
+        </div>
+      </mat-step>
+      <mat-step *ngIf="listQSt.length > 9" label="2">
+        <h3>Vous faites partie des personnes qui:</h3>
+        <mat-list>
+
+
+          <mat-list-item *ngFor="let qst of listQSt;index as i">
+            <div *ngIf="i >8 && i<18" class="row">
+              <h4>{{qst.Text}} </h4>
+              <div *ngIf="qst.Type ==='Radio'" class="row">
+                <div>
+                  <!--one reponse-->
+                  <mat-radio-group class="example-radio-group">
+                    <mat-radio-button class="example-radio-button" [value]="reponse.Response_ID" *ngFor="let reponse of getListResponse(qst.Question_ID)"
+                      (click)="getValue(reponse.Response_ID)">
+                      {{reponse.Text}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+              <mat-divider class="divder"></mat-divider>
+              <div *ngIf="qst.Type ==='Checkbox'">
+                <!--multiple reponse-->
+              </div>
+              <div *ngIf="qst.Type ==='Text'">
+                <!--text reponse-->
+              </div>
+            </div>
+          </mat-list-item>
+        </mat-list>
+
+        <div class="row" style="margin-top: 4%;">
+          <button mat-button matStepperPrevious style="color:white;background-color: #10623f" (click)="Progress(1)">Précedent</button>
+          <button mat-button matStepperNext style="color:white;background-color: #10623f;margin-left: 2%;" (click)="Progress(2);">Suivant</button>
+        </div>
+      </mat-step>
+      <mat-step *ngIf="listQSt.length > (9*2)" label="3">
+        <h3>Vous faites partie des personnes qui:</h3>
+        <mat-list>
+
+
+          <mat-list-item *ngFor="let qst of listQSt;index as i">
+            <div *ngIf="i >17 && i<27" class="row">
+              <h4>{{qst.Text}} </h4>
+              <div *ngIf="qst.Type ==='Radio'" class="row">
+                <div>
+                  <!--one reponse-->
+                  <mat-radio-group class="example-radio-group">
+                    <mat-radio-button class="example-radio-button" [value]="reponse.Response_ID" *ngFor="let reponse of getListResponse(qst.Question_ID)"
+                      (click)="getValue(reponse.Response_ID)">
+                      {{reponse.Text}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+              <mat-divider class="divder"></mat-divider>
+              <div *ngIf="qst.Type ==='Checkbox'">
+                <div *ngFor="let reponse of getListResponse(qst.Question_ID)">
+                  <mat-checkbox (click)="getValue(reponse.Response_ID)">{{reponse.Text}}</mat-checkbox>
+                </div>
+                <!--multiple reponse-->
+              </div>
+              <div *ngIf="qst.Type ==='Text'">
+                <!--text reponse-->
+              </div>
+            </div>
+
+          </mat-list-item>
+        </mat-list>
+        <div class="row" style="margin-top: 4%;">
+          <button mat-button matStepperPrevious style="color:white;background-color: #10623f" (click)="Progress(2)">Précedent</button>
+          <button mat-button  matStepperNext style="color:white;background-color: #10623f;margin-left: 2%;" (click)="Progress(3);Next3(stepper)">Suivant</button>
+        </div>
+      </mat-step>
+      <mat-step *ngIf="listQSt.length > (9*3) " label="4">
+        <h3>Vous faites partie des personnes qui:</h3>
+        <mat-list>
+
+
+          <mat-list-item *ngFor="let qst of listQSt;index as i">
+            <div *ngIf="i >26 && i<36" class="row">
+              <h4>{{qst.Text}} </h4>
+              <div *ngIf="qst.Type ==='Radio'" class="row">
+                <div>
+                  <!--one reponse-->
+
+                  <mat-radio-group class="example-radio-group">
+                    <mat-radio-button class="example-radio-button" [value]="reponse.Response_ID" *ngFor="let reponse of getListResponse(qst.Question_ID)"
+                      (click)="getValue(reponse.Response_ID)">
+                      {{reponse.Text}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+
+                </div>
+              </div>
+              <mat-divider class="divder"></mat-divider>
+              <div *ngIf="qst.Type ==='Checkbox'">
+                <!--multiple reponse-->
+              </div>
+              <div *ngIf="qst.Type ==='Text'">
+                <!--text reponse-->
+              </div>
+            </div>
+
+          </mat-list-item>
+        </mat-list>
+
+        <div class="row" style="margin-top: 4%;">
+          <button mat-button matStepperPrevious style="color:white;background-color: #10623f" (click)="Progress(3)">Précedent</button>
+          <button mat-raised-button type="button" style="color:white;margin-left: 2%;" (click)="SendingQuiz();">Envoyer</button>
+        </div>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+
+  </mat-card>
+
+</div>

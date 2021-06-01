@@ -1,0 +1,214 @@
+<div class="grid-container">
+    <mat-tab-group>
+        <mat-tab label="Informations Personnels">
+            <div class="Boxinput">
+                <mat-card style="margin-top: 2%;" class="center">
+                    <div class="row">
+                        <div class="col l2 m6 s12">
+                            <span class="Title">Nom</span>
+                        </div>
+                        <div class="col l2 m6 s12">
+                            <span >{{user.User_Name}} {{user.User_LastName}}</span>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col l2 m6 s12">
+                            <span class="Title">Email</span>
+                        </div>
+                        <div class="col l2 m6 s12">
+                            <span >{{user.User_Email}} </span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col l2 m6 s12">
+                            <span class="Title">Téléphone</span>
+                        </div>
+                        <div class="col l2 m6 s12">
+                            <span >{{user.User_Telephone}}</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col l2 m6 s12">
+                            <span class="Title">Date de naissance</span>
+                        </div>
+                        <div class="col l2 m6 s12">
+                            <span >{{user.DateNaissance | date:'dd/MM/yyyy' }}</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col l2 m6 s12">
+                            <span class="Title">Gouvernorat</span>
+                        </div>
+                        <div class="col l2 m6 s12">
+                            <span >{{user.Ville}}</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col l2 m4 s12">
+                            <span class="Title">Diplôme</span>
+                        </div>
+                        <div class="col l2 m4 s12">
+                            <span >{{user.diplome}}</span>
+                        </div>
+                        <div class="col l2 m4 s12">
+                            <span class="Title">Niveau</span>
+                        </div>
+                        <div class="col l2 m4 s12">
+                            <span >{{user.niveau}}</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col l2 m4 s12">
+                            <span class="Title">Spécialité</span>
+                        </div>
+                        <div class="col l2 m4 s12">
+                            <span >{{user.Specialite}}</span>
+                        </div>
+                        <div class="col l2 m4 s12">
+                            <span class="Title">
+                                Etablissement universitaire</span>
+                        </div>
+                        <div class="col l2 m4 s12">
+                            <span >{{user.Etablissement}}</span>
+                        </div>
+
+                    </div>
+                </mat-card>
+            </div>
+
+
+
+
+
+
+        </mat-tab>
+        <mat-tab label="Questionnaires">
+            <div class="Boxinput">
+                <mat-card style="margin-top: 2%;" class="center">
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span class="Title">1. Est-ce que vous confirmez votre disponibilité durant les jours de formations?</span>
+                                </div>
+                                
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span >{{user.disponibilite  }}</span>
+                                </div>
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span class="Title">2. Langues parlées</span>
+                                </div>
+                                
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span >{{user.langues  }}</span>
+                                </div>
+                    </div>
+                 
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span class="Title">
+                                            3. Expérience dans des événements d'entrepreneuriat?</span>
+                                </div>
+                                
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span >{{user.experiences  }}</span>
+                                </div>
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span class="Title">
+                                            4. Quelles sont vos motivations pour participer à ce challenge?</span>
+                                </div>
+                                
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span >{{user.Q1  }}</span>
+                                </div>
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span class="Title">
+                                            5. Citez un exemple de situation vécue où vous avez fait preuve de créativité? </span>
+                                </div>
+                                
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span >{{user.Q2  }}</span>
+                                </div>
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span class="Title">
+                                            6. Est-ce que vous avez déja travaillé en équipe pour concrétiser un projet collectif? si oui, veuillez raconter cette expérience? </span>
+                                </div>
+                                
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    <span >{{user.Q3  }}</span>
+                                </div>
+                    </div>
+                    <div class="row">
+                            <div class="col l2 m12 s12" style="width: 100%">
+                                    
+                                            <div class="row">
+                                                    <div class="col l2 m12 s12" style="width: 100%">
+                                                            <span class="Title">
+                                                                    7. Est-ce que vous avez déja intégré une association? si oui laquelle et quelle était votre mission? </span>
+                                                        </div>
+                                                        
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col l2 m12 s12" style="width: 100%">
+                                                            <span >{{user.Q4}}</span>
+                                                        </div>
+                                            </div> 
+                                </div>
+                                
+                    </div>
+                   
+                </mat-card>
+            </div>
+
+
+        </mat-tab>
+        <mat-tab label="Thémes"> 
+                <div class="Boxinput">
+                        <mat-card style="margin-top: 2%;" class="center">
+                <div class="row" *ngFor="let theme of Themes">
+                        <div class="col l2 m12 s12" style="width: 100%">
+                                <span  class="Title" >{{theme.rang}}. {{theme.Theme_Name}}</span>
+                            </div>
+                </div> 
+                </mat-card>
+                </div>
+
+        </mat-tab>
+    </mat-tab-group>
+    <mat-card style="margin-top: 2%;" class="center">
+        <div class="row">
+            <button   mat-raised-button type="button" style="color:white;float: right;" (click)="Sending()" >Envoyer</button> 
+        </div>
+        </mat-card>
+</div>

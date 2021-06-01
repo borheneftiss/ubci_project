@@ -1,0 +1,61 @@
+
+<div class="grid-container"> 
+  
+    <h1 style="color:#06955D">Liste des Utilisateurs</h1>
+  
+      <div >
+         
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+          </mat-form-field>
+  
+          <mat-table [dataSource]="dataSourceUsers" class="mat-elevation-z8">
+            
+            <ng-container matColumnDef="Nom">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Nom</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.User_Name}} {{user.User_LastName}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Email">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Email</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.User_Email }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Téléphone">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Numéro Téléphone</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.User_Telephone}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Etablissement">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">
+                Etablissement universitaire</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.Etablissement}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Diplome">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">
+                Diplôme</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.diplome}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Niveau">
+              <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">
+                Niveau</h3></mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.niveau}} </mat-cell>
+            </ng-container>
+            
+           
+               
+                    <ng-container matColumnDef="ac3">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let user">
+                          <button mat-icon-button matTooltip ="Détails" style="color:#02a365ad" (click)="Details(user)" >
+                              <mat-icon aria-label="Edit">details</mat-icon>
+                            </button>
+                             
+                      </mat-cell>
+                    </ng-container>
+                 
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+        </div>
+      
+      

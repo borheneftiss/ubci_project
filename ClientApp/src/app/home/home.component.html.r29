@@ -1,0 +1,74 @@
+<app-navbar-conn-inscri></app-navbar-conn-inscri>
+<app-navbar></app-navbar>
+<div sotos-slider-up-down  offset-top="offsetTop" images="images">
+  <div sotos-slider images="images.images1"   offset-top="offsetTop"></div>
+  <div sotos-slider images="images.images2"   offset-top="offsetTop"></div>
+</div>
+
+  <div style="position:relative; height:400px; overflow: hidden">
+    <div style="position:absolute;z-index:1; width:100%">
+       <img style="width:100%; height:500px" src="/assets/img/slide.png">
+    </div>
+    <div style="position:absolute;top:300px; width:600px; height:100px; z-index:2;margin-left:30% ">
+      <b style="color:white;font-size:200%">VOTRE IDEE A UNE VALEUR</b><br>
+      <b style="color:#ff6f59;font-size:150%;margin-left:10%">L'INNOVATION A UN PRIX</b>
+    </div> 
+ </div>
+
+
+<div style="position:relative; height:800px; overflow: hidden">
+    <div style="position:absolute;z-index:1; width:100%">
+       <img style="width:100%; height:500px" src="/assets/img/bg_1.png">
+    </div>
+    <div style="position:absolute; width:600px; height:100px; z-index:2;margin-left:25% ">
+        <h2 style="text-align:center" >Avez-vous l'étoffe d'un challenger! </h2>
+            <p style="text-align:center; color:darkgray; font-size:20px">
+                Vous êtes ambitieux et souhaitez participer<br>
+                programmation de l'innovation de l'UBCI? 
+            </p>
+        
+        <div id="example1"  style=" border: 2px solid #2b8cbe; background-color:#2b8cbe; padding: 10px; border-radius: 25px; margin:0 auto; width:90%">
+            <h1 style="color:white; text-align: center; font-size:20px">Rester Connecter<br><br>
+            Prochainement Ouverture des Inscriptions!</h1>
+        </div>
+        <br>
+        <TABLE BORDER=0 align="center" height="5">
+            <TR>
+              <TD></TD> 
+              <TD><img  src="/assets/img/icone2.png" width="100" ><br>
+                <label style="font-weight:bold">10 projets</label>
+              </TD> 
+              <TD></TD>
+            </TR>
+            <TR>
+              <TD><img  src="/assets/img/icone1.png" width="100" ><br>
+                <label style="font-weight:bold;">4 Mois de Challenge</label>
+              </TD>
+              <TD></TD> 
+              <TD><img  src="/assets/img/icone3.png" width="100" ><br>
+                <label style="font-weight:bold">10 équipes sélectionn</label>
+              </TD>
+            </TR>
+            <TR>
+                <TD><img  src="/assets/img/6.png" width="100" ><br>
+                <label style="font-weight:bold">1 Grand Prix</label>
+                </TD> 
+                <TD></TD> 
+                <TD><img  src="/assets/img/6.png" width="100" ><br>
+                  <label style="font-weight:bold">Workshops</label>
+                </TD> 
+              </TR>
+              <TR>
+                <TD></TD>
+                <TD><img  src="/assets/img/5.png" width="100" ><br>
+                <label style="font-weight:bold">3 équipes gagnates</label>
+                </TD> 
+                <TD></TD>
+              </TR>
+          </TABLE>
+    </div> 
+ </div>
+
+
+
+<div sotos-slider images="images.images2"   offset-top="offsetTop"></div>

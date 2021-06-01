@@ -1,0 +1,68 @@
+<div class="item item-1 boxinput">
+    <!--  <p  class="mat-subheading-2 center" align="center">
+          Créez votre questionnaire
+        </p>-->
+      <h1 style="color:#06955D">Ajouter un projet</h1>
+  
+     <mat-card style="max-width:100%" class="center">
+      <!--Form QST-->
+      <form [formGroup]="ConcoursForm" (ngSubmit)="onSubmit()" class="form">
+        <!--Name-->
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Titre" value="" formControlName="Concours_Title" required [errorStateMatcher]="matcher" >
+       
+        </mat-form-field>
+       <!--DateFin-->
+       <mat-form-field class="full-width" >
+          <input matInput [matDatepicker]="pickerD" placeholder="Date de Début" formControlName="Concours_DateDebut" required >
+          <mat-datepicker-toggle matSuffix [for]="pickerD"></mat-datepicker-toggle>
+          <mat-datepicker #pickerD [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="full-width" >
+          <input matInput [matDatepicker]="pickerCD" placeholder="Date de clôture" formControlName="Concours_DateCloture" required>
+          <mat-datepicker-toggle matSuffix [for]="pickerCD"></mat-datepicker-toggle>
+          <mat-datepicker #pickerCD [startAt]="startDate"></mat-datepicker>
+         
+         
+      
+      </mat-form-field>
+      <mat-error class="error-message" *ngIf="checkDate(ConcoursForm)">La date de clôture doit étre supérieur au date de début
+    </mat-error>
+      <mat-form-field class="full-width" >
+          <input matInput [matDatepicker]="picker1S" placeholder="Date de 1 ère résultat" formControlName="Concours_Date1Selection">
+          <mat-datepicker-toggle matSuffix [for]="picker1S"></mat-datepicker-toggle>
+          <mat-datepicker #picker1S [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+      <mat-error class="error-message" *ngIf="checkDate1S(ConcoursForm)">La Date de 1 ère résultat doit étre supérieur au date de clôture
+    </mat-error>
+      <mat-form-field class="full-width" >
+          <input matInput [matDatepicker]="picker2R" placeholder="Date de 2 éme résultat" formControlName="Concours_Date2Selection">
+          <mat-datepicker-toggle matSuffix [for]="picker2R"></mat-datepicker-toggle>
+          <mat-datepicker #picker2R [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+      <mat-error class="error-message" *ngIf="checkDate2S(ConcoursForm)">La Date de 1 ère résultat doit étre supérieur au date de clôture
+    </mat-error>
+      <mat-form-field class="full-width" >
+          <input matInput [matDatepicker]="pickerF" placeholder="Date de résultat finale" formControlName="Concours_DateFinale">
+          <mat-datepicker-toggle matSuffix [for]="pickerF"></mat-datepicker-toggle>
+          <mat-datepicker #pickerF [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+      <mat-error class="error-message" *ngIf="checkDateF(ConcoursForm)">La Date finale de résultat doit étre supérieur au date de clôture
+    </mat-error>
+      <mat-form-field class="full-width">
+            
+          <textarea matInput placeholder="Description" value=""  formControlName="Concours_Description"></textarea>
+      </mat-form-field>
+      <button mat-icon-button type="button" (click)="OpenModalprix()" >
+        <mat-icon aria-label="ajouter des prix" >add</mat-icon>Ajouter des prix
+      </button>
+
+  
+    <br/>
+      <div>
+      <button mat-raised-button type="submit" style="background: #06955D;float: right;" color="primary" [disabled]="!ConcoursForm.valid">Enregistrer</button>
+      <button mat-raised-button type="reset"  style="background: #06955D" color="primary">Annuler</button>
+    </div>
+        </form>
+        </mat-card>
+        </div>

@@ -1,0 +1,46 @@
+<div class="row" style="margin-bottom:0px;justify-content: space-between; width:100%; z-index:5;margin-left: auto;display: flex;background-color: #dcddde;align-items: center;position: fixed;">
+
+    <div style="display:flex;" class="col l6 m6 s6 cnx-bar">
+      <img src="assets/img/log_ubci .svg" class="logo_ubci"  alt="logo"  routerLink="/home">
+      <img src="assets/img/ui.svg" alt="Home" class="img_ui" routerLink="/home">
+
+      <img class="second-header" alt="lab" src="assets/img/lab.svg" class="img_lab" routerLink="/home">
+    </div>
+      
+      <div  class="col l6 m6 s6 cnx-bar">
+        <div style="display:flex;align-items: baseline;float: right;">
+
+            <div class="icon_notification">
+
+                    <!-- <p>Icon with a badge<mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon></p> -->
+
+                    <mat-icon matBadge={{notif_length}} style="margin-top: 25%;" matBadgeSize="medium" matBadgeColor="accent"><img style="margin-left: 10%;" src="/assets/img/ICONS_Website/Notifications.png"  [matMenuTriggerFor]="menunotif"></mat-icon>
+                    <mat-menu #menunotif="matMenu">
+                        <button mat-menu-item *ngFor="let notif of notif">{{notif.User_Notification_Title}} {{notif.User_Notification_Date}} </button>
+                    </mat-menu>
+            </div>
+        
+            <div class="profile_div" >
+                    <button class="style_bouuton" mat-button [matMenuTriggerFor]="profile">Mon profile</button>
+                    <mat-menu #profile="matMenu">
+                        
+                        <button mat-menu-item (click)="Logout()" routerLinkActive="active"><b style="font-family: Roboto;color: #285a4f">se déconnecter</b></button>
+                    </mat-menu>  
+            </div>
+
+             <div  class="menu-icon" *ngIf="!showMenu" (click)="showMenu = !showMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+            </div>
+             <div *ngIf="showMenu" style="position: relative;top: -46%;">
+                    <img (click)="showMenu = !showMenu" class="close_icon" src="/assets/img/icone_menu_dashboard/close.svg">
+            </div>      
+
+        </div> 
+        </div>
+    </div>
+
+     <div *ngIf="showMenu" class="div_opacity"></div> 
+   
+     <app-menu-verticale-responsive *ngIf="showMenu" class="test2" ></app-menu-verticale-responsive>   

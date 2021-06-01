@@ -1,0 +1,131 @@
+<!--
+<div class="item item-1 boxinput" style="margin-left: 50%; padding-right: 3%;">
+  <mat-card class="card_profile2">
+     <img [src]="url" style="height: 100px;margin-left: 40%"><br>
+     <input type="file" (change)="onSelectFile($event)" style="display: none" #fileInput>
+
+     <div style="width: 60%;margin-left: auto;display: flex">
+      <div>
+          <button mat-raised-button style="background: #06955D" color="primary" (click)="fileInput.click()" >Modifier Image</button>
+      </div>
+      <div style="margin-left: auto;">
+          <button mat-raised-button (click)="onUpload()" style="background: #06955D" color="primary" *ngIf="ShowButton">Upload!</button>
+      </div>
+    </div>
+     <h4 class="style_h4">Full Name:{{user_name}} {{user_last_name}}</h4>
+     <h4 class="style_h4">Email: {{user_email}}</h4>
+     <h4 class="style_h4">Diplome: {{user_diplome}}</h4>
+  </mat-card>
+</div>
+ -->
+
+<div>
+    <div style="display:flex;justify-content: space-between;">
+
+
+        <div style="display:flex; align-items: center">
+
+            <img style="border: 1px solid #ddd; border-radius: 50%;margin: 15px;
+            width: 20%;" [src]="url">
+
+
+            <div style="font-family: Roboto;font-size: large;display:flex;flex-direction:column">
+
+                <p style="font-size:bold;margin: 0px;;font-family: Roboto;font-style: italic;color: #dc8546;">{{profile.User_LastName}}
+                    {{profile.User_Name}}</p>
+
+                <p style="font-family: Roboto;margin: 0px;;font-style: italic;color: #dc8546;">{{profile.universite}}</p>
+            </div>
+
+
+
+        </div>
+
+        <div style="display:flex; align-items: center">
+            <input #file type="file"  (change)="upload(file.files)" style="display: none" />
+            <button mat-icon-button matTooltip="Editer" (click)="file.click()" style="color: grey;margin-left:auto;margin-right: 2%;padding: 3%;">
+                    <svg-icon src="/assets/img/ICONS_Website/ICONES/edit.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                </button>
+            <button mat-icon-button matTooltip="Changer Mot de passe" (click)="ShowPoupMD()" style="color: grey;margin-left:auto;margin-right: 2%;padding: 3%;">
+                    <svg-icon src="/assets/img/ICONS_Website/ICONES/lock.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+            </button>
+            
+        </div>
+
+    </div>
+
+ 
+        
+            <h4 style="border-bottom: 3px solid;
+            width: 34%;
+            margin: 0px;margin-left: 3%;
+            z-index: 2;color: #ff7900">MES INFORMATIONS PERSONNELLES</h4>
+            <div id="grid" style="border-top: 2px solid #dcddde;z-index: 1;">
+                <div id="areaA" style="margin-left: 5%;">
+                    <div class="grid-container">
+                        <div>
+                            <label class="label_Title">Prénom</label><br>
+                            <label class="label_resp">{{profile.User_LastName}}</label>
+                        </div>
+
+                        <div style="padding-top: 3%;">
+                            <label class="label_Title">Téléphone</label><br>
+                            <label class="label_resp">{{profile.User_Telephone}}</label>
+                        </div>
+
+                        <div style="padding-top: 3%;">
+                            <label class="label_Title">Ville</label><br>
+                            <label class="label_resp">{{profile.Ville}}</label>
+                        </div>
+
+                        <div style="padding-top: 3%;">
+                            <label class="label_Title">ÉTABLISSEMENT</label><br>
+                            <label class="label_resp">{{profile.universite}}</label>
+                        </div>
+
+                        <div style="padding-top: 3%;">
+                            <label class="label_Title">Diplôme</label><br>
+                            <label class="label_resp">{{profile.Diplome}}</label>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+                <div id="areaB"  style="margin-left: 5%;">
+                    <div class="grid-container">
+                        <div>
+                            <label class="label_Title">Nom</label><br>
+                            <label class="label_resp">{{profile.User_Name}}</label>
+                        </div>
+                        <div style="padding-top: 3%;">
+                            <label class="label_Title">Email</label><br>
+                            <label class="label_resp">{{profile.User_Email}}</label>
+                        </div>
+
+                        <div style="padding-top: 3%;">
+                            <label class="label_Title">Date de Naissance</label><br>
+                            <label class="label_resp">{{profile.DateNaissance | date}}</label>
+                        </div>
+
+
+                        <div style="padding-top: 3%;">
+                            <label class="label_Title">Niveau</label><br>
+                            <label class="label_resp">{{profile.niveau}}</label>
+                        </div>
+
+
+                        <div style="padding-top: 3%;">
+                            <label class="label_Title">Spécialite</label><br>
+                            <label class="label_resp">{{profile.specialite}}</label>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+      

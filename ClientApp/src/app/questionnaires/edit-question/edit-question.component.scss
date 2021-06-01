@@ -1,0 +1,17 @@
+.boxinput {
+    width: 600px;
+    
+  }
+  .flex-container {
+    display: flex; /* or inline-flex */
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+  }
+  .item {
+    flex-basis: auto; /* default auto */
+  }
+  .full-width {
+    width: 100%;
+   
+  }

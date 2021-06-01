@@ -1,0 +1,6 @@
+
+
+<app-navbar-home-connect *ngIf="auth.isLoggednIn()"></app-navbar-home-connect>
+<app-navbar-conn-inscri *ngIf="!auth.isLoggednIn()"></app-navbar-conn-inscri>
+<!--<app-navbar></app-navbar> -->
+<app-home-contenu></app-home-contenu>

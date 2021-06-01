@@ -1,0 +1,89 @@
+<div class="center">
+  <div class="zone">
+    <file-drop headertext="" (onFileDrop)="dropped($event)" 
+    (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" >
+
+        <img src="/assets/img/icons_UBCI_Enseignant/cloud.png" >
+      <br/>
+        <span class="spanload">Glisser & Déposer les fichier</span>
+        
+        <span class="spanload">ou séléctionner une option </span>
+ 
+    </file-drop>
+    <div style="display:flex;justify-content:center">
+        <div class="uploadCours" >
+                <input accept="application/pdf" #fileP type="file" multiple (change)="uploadPDF(fileP.files)" style="display: none" />
+          <img src="/assets/img/icons_UBCI_Enseignant/add_cours_cloud.png" style="cursor:pointer" (click)="fileP.click()" >
+        </div>
+        <div class="uploadVideo">
+                <input accept="video/*" #fileV type="file" multiple (change)="uploadV(fileV.files)" style="display: none" />
+            <img src="/assets/img/icons_UBCI_Enseignant/add_video_cloud.png" style="cursor: pointer" (click)="fileV.click()">
+        </div>
+      </div>
+
+      <div class="upload-table">
+          <table  style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Action</th>
+                  </tr>
+                  
+              </thead>
+              <tbody class="upload-name-style">
+                  <tr *ngFor="let item of courfile">
+                      <td><strong>{{ item.File_Path }}</strong></td>
+                      <td><button mat-icon-button  matTooltip ="Supprimer" style="color: #dd1155"  (click)="deleteFileCours(item.File_Cours_Id)"  >
+                          <img src="/assets/img/ICONS_Website/delete.png">
+                      </button></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  
+
+    
+</div>
+<mat-divider></mat-divider>
+<div class="item item-1 boxinput">
+ 
+  
+
+
+    <!--Form QST-->
+    <form [formGroup]="CoursForm" (ngSubmit)="onSubmitPCours()" class="form">
+      <!--Name-->
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Titre" value="" formControlName="Cours_Title" required [errorStateMatcher]="matcher" >
+     
+      </mat-form-field>
+     <!--DateFin-->
+     <mat-form-field class="full-width">
+        <input matInput placeholder="Type" value="" formControlName="Cours_Type" required [errorStateMatcher]="matcher" >
+     
+      </mat-form-field>
+    
+  <mat-form-field class="full-width">
+    <mat-label>Statut</mat-label>
+    <mat-select #fontSize value="16px" formControlName="StatusCours_Id" >
+        <mat-option *ngFor="let st of listSatus" [value]="st.StatusCours_Id">
+            {{st.StatusCours_Name}}
+          </mat-option>
+    </mat-select>
+  </mat-form-field>
+    <mat-form-field class="full-width">
+          
+        <textarea matInput placeholder="Description" value=""  formControlName="Cours_Description"></textarea>
+    </mat-form-field>
+  
+
+
+  <br/>
+    <div>
+    <button mat-raised-button type="submit" style="background: #d0c310;float: right;" color="primary" [disabled]="!CoursForm.valid">Enregistrer</button>
+    <button mat-raised-button type="reset"  style="background: #f27421" (click)="CloseCours()" color="primary">Annuler</button>
+  </div>
+      </form>
+     
+      </div>

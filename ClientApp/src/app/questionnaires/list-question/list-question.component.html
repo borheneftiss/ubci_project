@@ -1,0 +1,64 @@
+
+<div class="grid-container"> 
+  
+  <h1 style="color:#06955D">Liste des questions</h1>
+
+    <div >
+        <button style="background:#06955D;color:rgb(246, 253, 251)" mat-raised-button color="primary"(click)="addQuestion()" class="classAdd" >Ajouter</button>
+    
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+        </mat-form-field>
+
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="text">
+            <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Text</h3></mat-header-cell>
+            <mat-cell *matCellDef="let qst"> {{qst.Text}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Type</h3></mat-header-cell>
+            <mat-cell *matCellDef="let qst"> {{qst.Type}} </mat-cell>
+          </ng-container>
+          
+          <ng-container matColumnDef="ac1">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let qst">
+                        
+                        <button mat-icon-button matTooltip ="Supprimer" style="color: #dd1155" (click)="deleteQST(qst)">
+                            <mat-icon aria-label="delete">delete</mat-icon>
+                        </button>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="ac2">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let qst">
+                        <button mat-icon-button matTooltip ="Editer" style="color: #ffcc33"  (click)="editQST(qst)">
+                            <mat-icon aria-label="Edit">edit</mat-icon>
+                          </button>
+                           
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="ac3">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let qst">
+                          
+                            <div *ngIf="qst.Type == 'Text' ; then Text else radio"></div>
+
+                            <ng-template #Text> </ng-template>
+                            <ng-template #radio><button matTooltip ="Réponses" style="color:#02a365ad" mat-icon-button (click)="ListProposition(qst)">
+                                <mat-icon aria-label="Questions">details</mat-icon>
+                              </button>
+                              <button mat-icon-button matTooltip ="Ajouter Réponse" style="color:#02a365ad" (click)="AddProposition(qst)">
+                                <mat-icon aria-label="Questions">add</mat-icon>
+                              </button>
+                            </ng-template>
+                      </mat-cell>
+                    </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+      </div>
+    
+    

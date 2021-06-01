@@ -1,0 +1,150 @@
+
+<html>
+
+  <head>
+      <title>Navigation</title>
+  </head>
+  
+  <body>
+  <mat-toolbar class="toolbar" color="primary">
+      <div><img style="width:95px;" src="/assets/img/icone_menu_dashboard/logo.svg" routerLink="/home"></div>
+          
+          <div style="margin-left: auto">
+              <img src="/assets/img/icone_menu_dashboard/notification-bell.svg" class="img_notif" [matMenuTriggerFor]="menunotif">
+              <mat-menu #menunotif="matMenu">
+                  <button mat-menu-item>notification 1</button>
+                  <button mat-menu-item>notification 2</button>
+                  <button mat-menu-item>notification 3</button>
+              </mat-menu>
+
+          <img src="/assets/img/icone_menu_dashboard/user_1.svg" class="img_user_1" [matMenuTriggerFor]="menu">
+          
+          <mat-menu #menu="matMenu">
+          
+          <button mat-menu-item><img src="/assets/img/user1.png" style="width: 30px;"></button>
+          
+          <button mat-menu-item>{{user_email}}</button>
+          
+          <button mat-menu-item>{{user_name}}</button>
+          
+          <button mat-menu-item>{{user_last_name}}</button>
+          </mat-menu>
+          
+            <button style="font-family: Roboto" mat-button [matMenuTriggerFor]="profile">Mon profile</button>
+            <mat-menu #profile="matMenu">
+                <button mat-menu-item style="font-family: Roboto;color: #285a4f">{{user_name}} {{user_last_name}}</button>
+                <button mat-menu-item (click)="Logout()" routerLinkActive="active"><b style="font-family: Roboto;color: #285a4f">se déconnecter</b></button>
+            </mat-menu>
+          </div>
+
+          <div class="menu-icon" *ngIf="!showMenu" (click)="showMenu = !showMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+          <div *ngIf="showMenu" style="position: relative;top: -46%;">
+                  <img (click)="showMenu = !showMenu" style="width:18px;margin-top:65px" src="/assets/img/icone_menu_dashboard/close.svg">
+          </div> 
+            
+  </mat-toolbar>
+  
+  <mat-toolbar class="toolbar2"> 
+      <div style="position: absolute;" class="nav-bar">   
+          <ul class="top_new_nav">
+              <li>
+                  <a  routerLink="/dashboard" routerLinkActive="active"> 
+                      <div class="name"><span data-text="Dashboard">Dashboard</span></div>
+                  </a>
+              </li>
+
+              <li>
+                  <a routerLink="/Projets" routerLinkActive="active">
+                      <div class="name"><span>Thèmes</span></div>
+                  </a>
+              </li>
+              
+              <li>
+                <a  routerLink="/Workshops_admin" routerLinkActive="active"> 
+                    <div class="name"><span data-text="Workshops">Workshops</span></div>
+                </a>
+              </li>
+              <li>
+                  <a routerLink="/Projets" routerLinkActive="active">
+                      <div class="name"><span>Questionnaires</span></div>
+                  </a>
+              </li>
+              
+              <li>
+                  <a routerLink="/profile" routerLinkActive="active">
+                      <div class="name"><span>Utilisateurs</span></div>
+                  </a>
+              </li>
+              
+              <li>
+                  <a routerLink="/Projets" routerLinkActive="active"> 
+                      <div class="name"><span>Setting</span></div>
+                  </a>
+              </li> 
+              
+              <li>
+                  <a routerLink="/Projets" routerLinkActive="active">
+                      <div class="name"><span>Notifications</span></div>
+                  </a>
+              </li>
+              
+              <li>
+                  <a routerLink="/profile" routerLinkActive="active">
+                      <div class="name"><span>Profil</span></div>
+                  </a>
+              </li>
+              
+              </ul>
+      </div> 
+              
+</mat-toolbar>
+
+<div *ngIf="showMenu" class="div_opacity">
+
+<mat-toolbar  class="testbar"> 
+      <div style="position: absolute;top: 0%;">               
+         <div>
+              <p class="menu_mobile"><a class="lien_href" href="/dashboard">Dashboard</a></p>    
+          </div>
+              
+          <div>
+              <p class="menu_mobile"><a class="lien_href" href="/Projets">Thèmes</a></p>
+          </div>
+               
+          <div>
+            <p class="menu_mobile"><a class="lien_href" href="/Workshops_admin">Workshops</a></p>
+        </div>
+              
+          <div>
+              <p class="menu_mobile"><a class="lien_href" href="">Questionares</a></p>
+          </div>
+              
+          <div>
+              <p class="menu_mobile"><a class="lien_href" href="">Utilisateurs</a></p>
+          </div>
+              
+          <div>
+              <p class="menu_mobile"><a class="lien_href" href="">Setting</a></p>
+          </div>
+              
+          <div>
+              <p class="menu_mobile"><a class="lien_href" href="">Notifications</a></p>
+          </div>
+              
+          <div>
+              <p class="menu_mobile" >
+                      <a class="lien_href" href="/profile">Profil</a> 
+              </p>
+          </div>      
+      </div>      
+  </mat-toolbar>
+</div>  
+
+  </body>
+   
+  </html>
+

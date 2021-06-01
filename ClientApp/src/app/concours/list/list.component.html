@@ -1,0 +1,86 @@
+<div class="grid-container">
+
+  <h1 style="color:#06955D">Liste des questions</h1>
+
+  <div>
+    <button style="background:#06955D;color:rgb(246, 253, 251)" mat-raised-button color="primary" (click)="addQNewC()" class="classAdd">Ajouter</button>
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+    </mat-form-field>
+    <mat-table [dataSource]="dataSourceC" class="mat-elevation-z8">
+      <ng-container matColumnDef="text">
+        <mat-header-cell *matHeaderCellDef>
+          <h3 style="color:#06955D">Titre</h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let Cs"> {{Cs.Concours_Title}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="etat">
+        <mat-header-cell *matHeaderCellDef>
+          <h3 style="color:#06955D">Etat</h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let Cs"> {{Cs.Concours_Etat}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="dateDEb">
+        <mat-header-cell *matHeaderCellDef>
+          <h3 style="color:#06955D"> Date de début</h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let Cs"> {{Cs.Concours_DateDebut | date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="dateDCloture">
+        <mat-header-cell *matHeaderCellDef>
+          <h3 style="color:#06955D"> Date de clôture</h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let Cs"> {{Cs.Concours_DateCloture | date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="date1S">
+        <mat-header-cell *matHeaderCellDef>
+          <h3 style="color:#06955D"> Date de 1ère résultat</h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let Cs"> {{Cs.Concours_Date1Selection | date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="date2S">
+        <mat-header-cell *matHeaderCellDef>
+          <h3 style="color:#06955D"> Date de 2éme résultat </h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let Cs"> {{Cs.Concours_Date2Selection | date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="dateFinale">
+        <mat-header-cell *matHeaderCellDef>
+          <h3 style="color:#06955D"> Date finale de concours</h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let Cs"> {{Cs.Concours_DateFinale | date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ac1">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let Cs">
+
+          <button mat-icon-button (click)="deleteCs(Cs)">
+            <mat-icon aria-label="delete">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ac2">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let Cs">
+
+          <button mat-icon-button (click)="edit(Cs)">
+            <mat-icon aria-label="delete">edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ac3">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let Cs">
+
+          <button mat-icon-button (click)="ShowDetails(Cs)">
+            <mat-icon aria-label="delete">details</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

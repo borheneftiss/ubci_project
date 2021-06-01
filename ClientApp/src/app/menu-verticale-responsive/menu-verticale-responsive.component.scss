@@ -1,0 +1,111 @@
+
+.active span{
+    color: white;
+  }
+  
+  .style_span{
+    font-family:'Open Sans', sans-serif;font-size: 13px;
+  }
+  #navigation li a.active {
+    background: #dc8546 ;
+    text-decoration: none ;
+  }
+  #navigation li a.active div div svg-icon svg g.orangeicons {
+    
+    fill:#ffffff !important;
+  }
+  #navigation li a:hover, #navigation li a:focus, #navigation li a:active {
+    background: #dc8546 ;
+    text-decoration: none ;
+    color: #ffffff;
+  }
+  #navigation li a:hover, #navigation li a:focus, #navigation li a:active {
+    background: #dc8546 ;
+    text-decoration: none ;
+    color: #ffffff;
+  }
+  #navigation {
+      width: 250px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .orangeicons{
+      fill:#dc8546;;
+    }
+    #navigation li {
+      //background: #c00 ;
+      color: f2f2f2 ;
+      //border: 1px solid #600 ;
+      margin-bottom: 1px ;
+    }
+  
+    #navigation li a {
+      display: block ;
+      background: #f2f2f2 ;
+      color: grey ;
+      font: 1em "Trebuchet MS",Arial,sans-serif ;
+      line-height: 1em ;
+      text-align: left ;
+      text-decoration: none ;
+      padding: 14px 0 ;
+      padding-left: 6%;
+      border-bottom: solid 0.5px;
+      border-bottom-color: lightgray;
+    }
+  
+    #navigation li a:hover, #navigation li a:focus, #navigation li a:active {
+      background: #dc8546 ;
+      text-decoration: none ;
+    }
+  
+    .menu {
+      display: flex;
+      left: 85%;
+      top:1%; 
+      position:absolute
+  }
+  hr {
+      height: 1px;
+      color: #ffffff;
+      background-color: #ffffff;
+      border: 0;
+      width: 90%;
+      margin-left:10%;
+    }
+  
+    .img_notif{
+      width: 18px;
+      //padding-right: 10%;
+  }
+  
+   #test2 .accueil {
+      background-image: url("/assets/img/ICONS_Website/Profil.png");
+      background-repeat: no-repeat;
+      background-position: left;
+      padding-left: 32px;
+   }
+  
+   #test2 .accueil li a:hover, #test2  li a:focus, #test2  li a:active {
+      background: #dc8546 ;
+      text-decoration: none ;
+    }
+  
+  .active a {
+    background: red;
+    color:green
+  }
+  /*.test{
+    background: #f2f2f2;
+    height: 100vh;
+  }*/
+
+  @media (min-width:831px){
+    .li_logout{
+      display: none;
+    }
+    
+  }
+  
+  
+  

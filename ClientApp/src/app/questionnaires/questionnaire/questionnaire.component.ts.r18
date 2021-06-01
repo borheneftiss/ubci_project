@@ -1,0 +1,77 @@
+import { Component, OnInit , ViewChild} from '@angular/core';
+import { Http, Headers } from '@angular/http';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { QuestionnaireService } from '../questionnaire.service' ;
+ import { DataSource } from '@angular/cdk/table';
+
+import { Questionnaire } from '../questionnaire';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+@Component({
+  selector: 'app-questionnaire',
+  templateUrl: './questionnaire.component.html',
+    styleUrls: ['./questionnaire.component.scss'],
+    providers: [QuestionnaireService],
+})
+export class QuestionnaireComponent implements OnInit {
+   dataSource =  new MatTableDataSource();
+   QST: Questionnaire[];
+   totalCount: number;
+   @ViewChild(MatPaginator) paginator: MatPaginator;
+    displayedColumns = ['name', 'email', 'phone', 'date1', 'date2', 'ac', 'ac2', 'ac3'];
+    constructor(private _QuestionnaireService: QuestionnaireService,  private router: Router) {
+        this.getQuestionnaires();
+    }
+    getQuestionnaires() {
+        this._QuestionnaireService.getQuestionnaires().subscribe(
+            QStLists => this.dataSource.data = QStLists
+        );
+  }
+  getAllCustomers() {
+   // this._QuestionnaireService.getAllQST()
+     //   .subscribe((result: any) => {
+         //   this.totalCount = 10;
+           // this.dataSource.data = result.body.value;
+        // });
+}
+
+    ngOnInit() {
+        this.dataSource.paginator = this.paginator;
+    }
+    applyFilter(filterValue: string) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+      }
+
+      addQuestionnaire(): void {
+        this.router.navigate(['questionnaire/add']);
+      }
+      editQST(qst: Questionnaire): void {
+        localStorage.removeItem('QSTID');
+        localStorage.setItem('QSTID', qst.Questionnaire_ID.toString());
+        this.router.navigate(['questionnaire/edit/' + qst.Questionnaire_ID]);
+      }
+      ListQuestion(qst: Questionnaire): void {
+        this.router.navigate(['questionnaire/list-question/' + qst.Questionnaire_ID]);
+      }
+      delete(QST: Questionnaire) {
+        const ans = confirm('Voulez vous supprimer ce questionnaire: ' + QST.Name);
+        if (ans) {
+            this._QuestionnaireService.deleteQST(QST.Questionnaire_ID).subscribe((data) => {
+                this.getQuestionnaires();
+            });
+        }
+    }
+    }
+export class UserDataSource extends DataSource<any> {
+
+    constructor(private _QuestionnaireService: QuestionnaireService) {
+        super();
+    }
+    connect(): Observable<Questionnaire[]> {
+        return this._QuestionnaireService.getQuestionnaires();
+    }
+    disconnect() { }
+}
+

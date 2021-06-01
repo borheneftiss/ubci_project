@@ -1,0 +1,40 @@
+
+
+<h3>Modifier ou réinitialiser votre mot de passe</h3>
+<div class="container" style="height:auto">
+  <div class="row" >
+    <form (ngSubmit)="onSubmitMDP()" class="form" [formGroup]="MDPForm" >
+         
+            <mat-form-field class="example-full-width" style="width: 100%">
+                <input matInput  placeholder="Votre Mot de Passe" [type]="!hide ? 'password' : 'text'"  formControlName="AncienMDP" required >
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                
+              </mat-form-field>
+              <mat-error *ngIf="formErrors.AncienMDP" class="help is-danger">
+                {{formErrors.AncienMDP}}
+              </mat-error>
+
+         
+            <mat-form-field class="example-full-width" style="width: 100%">
+                <input matInput  placeholder=" Nouveau Mot de Passe" [type]="!hide1 ? 'password' : 'text'"  formControlName="NewMDP" required >
+                <mat-icon matSuffix (click)="hide1 = !hide1">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+            <mat-error *ngIf="formErrors.NewMDP" class="help is-danger">
+              {{formErrors.NewMDP}}
+            </mat-error>
+
+          
+            <mat-form-field class="example-full-width" style="width: 100%">
+                <input matInput  placeholder="Confirmer Nouveau Mot de Passe" [type]="!hide2 ? 'password' : 'text'"   formControlName="ConfirmNewMDP" required >
+                <mat-icon matSuffix (click)="hide2 = !hide2">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+           
+
+         
+            <button mat-raised-button  type="submit" [disabled]="!MDPForm.valid" style="background: #146845" color="primary">Valider</button>
+          
+          </form>
+      
+  </div>
+</div>
+

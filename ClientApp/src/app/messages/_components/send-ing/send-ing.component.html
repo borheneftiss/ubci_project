@@ -1,0 +1,21 @@
+<div class="item item-1 boxinput">
+    <!--  <p  class="mat-subheading-2 center">
+          Créez un question.
+        </p>-->
+    <h1 style="color:#06955D">Reponse </h1>
+   
+  
+      <!--Form QST-->
+      <form [formGroup]="SendingForm" (ngSubmit)="onSubmitSending()" class="form">
+        <!--Name-->
+        <mat-form-field class="full-width">
+          <textarea  matInput placeholder="Message" value="" formControlName="Text" [errorStateMatcher]="matcher" required></textarea>
+        </mat-form-field>
+        <!--Type-->
+        
+         <!--Submit button-->
+      <button mat-raised-button type="submit" style="background: #d0c310;float: right;" color="primary" [disabled]="!SendingForm.valid">Envoyer</button>
+      <button mat-raised-button type="reset"   style="background: #d0c310" color="primary" (click)="onClose()">Annuler</button>
+      </form>
+  
+  </div>

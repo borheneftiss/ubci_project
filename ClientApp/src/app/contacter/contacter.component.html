@@ -1,0 +1,62 @@
+<app-navbar-conn-inscri></app-navbar-conn-inscri>
+
+<div class="boxinput">
+  <mat-card style="max-width:100%;margin-top: 20%;" >
+    
+<h1  style="color:#266a7d; text-align: center;font-size:24px ;font-family: ContactFontBold">Nous contacter</h1>
+<p style="font-family:ContactFont">Pour toutes questions ou autres demandes d'informations, vous pouvez nous envoyer un e-mail en utilisant le formulaire de contact ci-dessous. Vous recevrez une réponse dans un délai de 24H à 48H.</p>
+
+
+
+
+
+<!--Form signup-->
+<form [formGroup]="ContactForm" style ="width: 75%;align-items: center;margin-left: 12%;" (ngSubmit)="onSubmitContact()" #f="ngForm" novalidate class="form">
+  
+  <!--first Name-->
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Prénom" value="" type="text" required class="form-control" formControlName="Contact_Prenom" 
+    [errorStateMatcher]="matcher">
+   
+  </mat-form-field>
+
+ 
+
+  <!--last Name-->
+   <mat-form-field class="full-width">
+    <input  matInput placeholder="Nom" value="" required  formControlName="Contact_Nom" [errorStateMatcher]="matcher">
+  </mat-form-field> 
+
+  <!--phone Number-->
+  <mat-form-field class="full-width">
+      <span matPrefix>+216 &nbsp;</span>
+      <input  matInput maxlength="8" minlength="8" formControlName="Contact_Telephone" required  placeholder="Téléphone"  [errorStateMatcher]="matcher"> 
+     
+    </mat-form-field>
+  <!-- <div *ngIf="hasErrorphone('Telephone')">
+    <h5 style="color:red">Numero de Télephone faut contenir 8 chiffre</h5> 
+  </div> -->
+
+  <!--Email-->
+  <mat-form-field class="full-width">
+      <input matInput placeholder="Email"   formControlName="Contact_Email" [errorStateMatcher]="matcher" required >
+  </mat-form-field>
+  
+
+  <mat-form-field class="full-width">
+      <textarea matInput placeholder="Commentaires" formControlName="Cors_Message" ></textarea>
+    </mat-form-field>
+ 
+
+ 
+   <!--Submit button-->
+   <button [disabled]="!ContactForm.valid" mat-raised-button type="submit" style="color:white"  >Envoyer</button> 
+
+</form>
+
+</mat-card>
+
+
+  </div>
+
+  

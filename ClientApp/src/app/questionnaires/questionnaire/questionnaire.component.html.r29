@@ -1,0 +1,70 @@
+
+
+<div class="grid-container">
+ <div *ngIf="!ProjectShow" >
+    <h1 style="color:#06955D">Liste des questionnaires</h1>
+ </div>
+<div *ngIf="ProjectShow" >
+    <a mat-fab (click)="NavigateToProject()" style="color:#06955D" > <mat-icon aria-label="previous">skip_previous</mat-icon>Projet:  {{Projet_Name}}</a>   
+ </div>
+<div >
+    <button style="background:#06955D;color:rgb(246, 253, 251)" mat-raised-button (click)="addQuestionnaire()" class="classAdd" >Ajouter</button>
+
+        <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+              </mat-form-field>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Nom</h3> </mat-header-cell>
+        <mat-cell *matCellDef="let qst"> {{qst.Name}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> <h3 style="color:#06955D">Type</h3> </mat-header-cell>
+        <mat-cell *matCellDef="let qst"> {{qst.Type}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Description</h3></mat-header-cell>
+        <mat-cell *matCellDef="let qst"> {{qst.Description}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="date1">
+        <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Date de publication</h3> </mat-header-cell>
+        <mat-cell *matCellDef="let qst"> {{qst.StartPublication | date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="date2">
+        <mat-header-cell *matHeaderCellDef><h3 style="color:#06955D">Date Fin Publication</h3> </mat-header-cell>
+        <mat-cell *matCellDef="let qst"> {{qst.EndPublication | date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ac">
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-cell *matCellDef="let qst">
+                    
+                    <button mat-icon-button (click)="delete(qst)">
+                        <mat-icon aria-label="delete">delete</mat-icon>
+                      </button>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="ac2">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let qst">
+                    <button mat-icon-button (click)="editQST(qst)">
+                        <mat-icon aria-label="Edit">edit</mat-icon>
+                      </button>
+                       
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="ac3">
+                  <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                  <mat-cell *matCellDef="let qst">
+                      <button mat-icon-button (click)="ListQuestion(qst)">
+                          <mat-icon aria-label="Questions">details</mat-icon>
+                        </button>
+                         
+                  </mat-cell>
+                </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  </div>
+

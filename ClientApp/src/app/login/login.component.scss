@@ -1,0 +1,113 @@
+.example-form {
+    min-width: 150px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .boxinput{
+    width:400px;
+    margin-top: 5%;
+    margin: 0 auto;
+    margin-top: 10%;
+  }
+
+  .resetpassword{
+    position: absolute;
+    right: 25px;
+    font-size: 12px;
+    bottom: 15%;
+  }
+
+
+  @media (min-width: 1281px) {
+  
+    .boxinput{
+      width:400px;
+      margin-top: 5%;
+      margin: 0 auto;
+      margin-top: 10%;
+    }    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    .boxinput{
+      width:400px;
+      margin-top: 5%;
+      margin: 0 auto;
+      margin-top: 10%;
+    }
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    .boxinput{
+      width:400px;
+      margin-top: 5%;
+      margin: 0 auto;
+      margin-top: 10%;
+    }
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .boxinput{
+      width:400px;
+      margin-top: 5%;
+      margin: 0 auto;
+      margin-top: 10%;
+    }
+    
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    .boxinput{
+      width:100%;
+      margin-top: 5%;
+      margin: 0 auto;
+      margin-top: 10%;
+    }
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    
+    .boxinput{
+      width:100%;
+      margin-top: 5%;
+      margin: 0 auto;
+      margin-top: 10%;
+    }
+    
+  }
+

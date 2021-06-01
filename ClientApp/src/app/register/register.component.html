@@ -1,0 +1,239 @@
+<app-navbar-conn-inscri></app-navbar-conn-inscri>
+<div class="header-hr"></div>
+<div class="item item-1 boxinput">
+    
+      
+     
+<h1 mat-dialog-title style="color:#285a4f;font-size:24px ;margin-left: -6%;text-align: center;font-family: ContactFontBold">INSCRIPTION</h1>
+<mat-card style="max-width:100%" >
+    
+   
+  
+ 
+    <!--Form signup-->
+    <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()" #f="ngForm" novalidate class="form">
+        <mat-error *ngIf="verify" class="help is-danger">
+            {{messageregister}}
+          </mat-error>
+      <!--first Name-->
+      <mat-form-field class="full-width">
+          <span class="spanR">Prénom<span style="color:red">*</span></span>
+        <input matInput placeholder="" value="" type="text"  class="form-control" formControlName="User_Name" 
+        [errorStateMatcher]="matcher">
+        <mat-error *ngIf="formErrors.User_Name" class="help is-danger">
+            {{formErrors.User_Name}}
+          </mat-error>
+      </mat-form-field>
+      
+     
+
+      <!--last Name-->
+       <mat-form-field class="full-width">
+          <span class="spanR">Nom<span style="color:red">*</span></span>
+        <input  matInput placeholder="" value=""   formControlName="User_LastName" [errorStateMatcher]="matcher">
+      </mat-form-field> 
+ <!--Email-->
+ <mat-form-field class="full-width">
+    <span class="spanR">Email<span style="color:red">*</span></span>
+    <input matInput placeholder=""   formControlName="User_Email" [errorStateMatcher]="matcher"  >
+    <mat-error *ngIf="formErrors.User_Email" class="help is-danger">
+      {{formErrors.email}}
+    </mat-error>
+  </mat-form-field>
+<!--<div *ngIf="hasErroremail('User_Email','email')">
+<h5 style="color:red">Email est non valide</h5></div>-->
+
+      <!--phone Number-->
+      
+      <mat-form-field class="full-width">
+          <span class="spanR">Téléphone<span style="color:red">*</span></span>
+       
+          <input  matInput maxlength="8" minlength="8" formControlName="User_Telephone"   placeholder=""  [errorStateMatcher]="matcher"> 
+          <mat-error *ngIf="formErrors.User_Telephone" class="help is-danger">
+            {{formErrors.User_Telephone}}
+          </mat-error>
+        </mat-form-field>
+      <!-- <div *ngIf="hasErrorphone('Telephone')">
+        <h5 style="color:red">Numero de Télephone faut contenir 8 chiffre</h5> 
+      </div> -->
+
+     
+      
+         <!--Date Naissance-->
+      <mat-form-field class="full-width" >
+          <span class="spanR">Date de naissance<span style="color:red">*</span></span>
+          <input matInput [matDatepicker]="picker"  formControlName="DateNaissance"   placeholder=""  >
+          <mat-datepicker-toggle matSuffix [for]="picker"  ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <!--Diplom-->
+      <mat-form-field class="full-width">
+          <span class="spanR">Gouvernorat<span style="color:red">*</span></span>
+          <mat-select placeholder="" formControlName="Ville_Id"  (selectionChange)="someMethodVille($event.value)">
+            <mat-option *ngFor="let vl of villes" [value]="vl.Ville_Id">
+              {{vl.Ville_Name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> 
+        <div *ngIf="ShowVille">
+          <mat-form-field class="full-width2"  >
+             <input  matInput placeholder="Autre Gouvernorat" value=""    formControlName="AutreVille" [errorStateMatcher]="matcher">
+         
+         </mat-form-field> 
+       </div>
+      <!--Diplom-->
+      <mat-form-field class="full-width">
+          <span class="spanR">Diplôme<span style="color:red">*</span></span>
+        <mat-select placeholder="" formControlName="Diplome_Id"   >
+          <mat-option *ngFor="let diplome of diplomes" [value]="diplome.Value">
+            {{diplome.Text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> 
+         <!--Diplom-->
+        
+        <mat-form-field class="full-width">
+          <mat-select placeholder="" formControlName="Niveau_ID"  (selectionChange)="someMethod($event.value)" >
+            <mat-option *ngFor="let nv of Niveau" [value]="nv.Niveau_ID">
+              {{nv.Niveau_Name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> 
+        
+        <div *ngIf="ShwoNiveau">
+          <mat-form-field class="full-width2"  >
+             <input  matInput placeholder="Autre Niveau" value=""    formControlName="niveau" [errorStateMatcher]="matcher">
+         
+         </mat-form-field> 
+       </div>
+      <!--Etablissement-->
+     
+     
+      <mat-form-field class="full-width">
+          <span class="spanR">Spécialité<span style="color:red">*</span></span>
+          <input  matInput placeholder="" value=""   formControlName="spécialite" [errorStateMatcher]="matcher">
+      
+      </mat-form-field>
+      <mat-form-field class="full-width">
+          <span class="spanR">Etablissement universitaire<span style="color:red">*</span></span>
+        <mat-select placeholder=""   formControlName="Etablissement_Id" (selectionChange)="someMethodUNi($event.value)">
+          <mat-option *ngFor="let etablissement of etablissements" [value]="etablissement.Value" >
+            {{etablissement.Text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="ShowUN">
+        <mat-form-field class="full-width2"  >
+            
+           <input  matInput placeholder="Autre Etablissement universitaire"  value=""    formControlName="universite" [errorStateMatcher]="matcher">
+       
+       </mat-form-field> 
+     </div>
+      
+    
+      <!--Password-->
+      <mat-form-field class="full-width">
+          <span class="spanR">Mot de passe<span style="color:red">*</span></span>
+        <input matInput  placeholder="" [type]="hide ? 'password' : 'text'" formControlName="User_Password" >
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="formErrors.User_Password" class="help is-danger">
+          {{formErrors.User_Password}}
+        </mat-error>
+      </mat-form-field>
+      <!--Confirmation Password-->
+      <mat-form-field class="full-width">
+          <span class="spanR">Confirmation mot de passe<span style="color:red">*</span></span>
+        <input matInput placeholder="" formControlName="passwordConfirm" required [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="formErrors.passwordConfirm" class="help is-danger">
+          {{formErrors.passwordConfirm}}
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="full-width2" >
+          <span class="spanR">1. Est-ce que vous confirmez votre disponibilité durant les jours de formations?<span style="color:red">*</span></span>
+          <input matInput   formControlName="Disponibilte" required  placeholder=""  >
+          
+      </mat-form-field>
+      <mat-form-field class="full-width2">
+          <span class="spanR">2. Langues parlées<span style="color:red">*</span></span>
+          <input  matInput  value=""   formControlName="Langues" [errorStateMatcher]="matcher">
+      
+      </mat-form-field>
+      <mat-form-field class="full-width2">
+          <span class="spanR">3. Expérience dans des événements d'entrepreneuriat?<span style="color:red">*</span></span>
+          <textarea matInput formControlName="Experiences" ></textarea>
+        </mat-form-field>
+      
+      <mat-form-field class="full-width2">
+          <span class="spanR">4. Quelles sont vos motivations pour participer à ce challenge?<span style="color:red">*</span></span>
+          <textarea matInput formControlName="Question1" ></textarea>
+          <mat-error *ngIf="formErrors.Question1" class="help is-danger">
+              {{formErrors.Question1}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width2">
+            <span class="spanR">5. Citez un exemple de situation vécue où vous avez fait preuve de créativité? <span style="color:red">*</span></span>
+            <textarea matInput placeholder=""  formControlName="Question2" ></textarea>
+            <mat-error *ngIf="formErrors.Question2" class="help is-danger">
+                {{formErrors.Question2}}
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width2">
+              <span class="spanR">6. Est-ce que vous avez déja travaillé en équipe pour concrétiser un projet collectif? si oui, veuillez raconter cette expérience?<span style="color:red">*</span></span>
+              <textarea matInput placeholder=""  formControlName="Question3" ></textarea>
+              <mat-error *ngIf="formErrors.Question3" class="help is-danger">
+                  {{formErrors.Question3}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width2">
+                <span class="spanR">7. Est-ce que vous avez déja intégré une association? si oui laquelle et quelle était votre mission?<span style="color:red">*</span></span>
+                <textarea matInput placeholder=" "   formControlName="Question4" ></textarea>
+                <mat-error *ngIf="formErrors.Question4" class="help is-danger">
+                    {{formErrors.Question4}}
+                  </mat-error>
+              </mat-form-field>
+              <mat-card>
+                  <div class="row">
+              <span>Classez les thèmes par ordre d'importance :</span>
+              
+              <mat-list>
+                  <mat-list-item *ngFor="let link of Themes2">
+                    <div>
+              <mat-form-field class="full-width3">
+                
+                  <mat-select required  formControlName="Theme{{link.Theme_Id}}" style ="overflow-y: inherit !important;" id="number"   >
+                    <mat-option *ngFor="let theme of Themes" [value]="theme.Theme_Id" >
+                      {{theme.Theme_Id}}
+                    </mat-option>
+                  </mat-select>
+                  
+                </mat-form-field>
+                <span  class="full-widththeme" > {{link.Theme_Name}} </span>
+              </div>
+                </mat-list-item>
+               
+                <mat-error *ngIf="range" class="help is-danger" style="padding: 1%;" >
+                    {{Messagerange}}
+                  </mat-error>
+              </mat-list>
+              </div>
+              </mat-card>
+
+      <!--CGU-->
+      <section class="section">
+        <mat-checkbox class="example-margin" formControlName="CheckC" style ="font-size: 14px;"> Je déclare avoir lu et compris les conditions figurant au règlement du Challenge disponible sous (règlement) en reconnaissant les accepter sans réserve. </mat-checkbox>
+      </section>
+      
+       <!--Submit button-->
+       <div class="row">
+       <button   mat-raised-button type="submit" style="color:white" >Valider</button> 
+      </div>
+  </form>
+    
+  
+  </mat-card> 
+    
+      </div>
+      
+      <app-navbar></app-navbar>

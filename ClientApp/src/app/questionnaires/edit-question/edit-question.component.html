@@ -1,0 +1,50 @@
+
+<div class="item item-1 boxinput">
+ <!--   <p  class="mat-subheading-2 center">
+        Editer un question.
+      </p>-->
+  <h1 style="color:#bdd63b">Editer un question</h1>
+ 
+      
+    <!--Form QST-->
+    <form [formGroup]="questionFormEdit" (ngSubmit)="onSubmitE()" class="form">
+      <!--Name-->
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Text" id="Text"  formControlName="Text" [errorStateMatcher]="matcher">
+     
+      </mat-form-field>
+      <!--Type-->
+      
+        
+        <mat-form-field class="full-width">
+            <mat-label>Type</mat-label>
+            <mat-select #fontSize  formControlName="Type" id="Type" >
+              <mat-option value="Text">Text</mat-option>
+              <mat-option value="Radio">Radio</mat-option>
+              <mat-option value="Checkbox">Checkbox</mat-option>
+              <mat-option value="Liste déroulante">Liste déroulante</mat-option>
+              <mat-option value="Notation">Notation</mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+       <!--Status-->
+       
+        <mat-form-field class="full-width">
+            <mat-label>Satut</mat-label>
+            <mat-select #fontSize value="16px" formControlName="Status" id="Status" required>
+                <mat-option *ngFor="let st of Status" [value]="st.Text">
+                    {{st.Text}}
+                  </mat-option>
+              
+            </mat-select>
+          </mat-form-field>
+        <!--Description-->
+       
+    
+       <!--Submit button-->
+    <button mat-raised-button type="submit" style="background: #ffe00b;float: right;" color="primary">Enregistrer</button>
+    <button mat-raised-button type="reset"  style="background: #f27421" color="primary" (click)="onClose()">Annuler</button>
+    </form>
+   
+ 
+</div>

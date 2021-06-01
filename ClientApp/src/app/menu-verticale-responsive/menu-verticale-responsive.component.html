@@ -1,0 +1,110 @@
+<div style="background: #f2f2f2" style="margin-top: 10%">
+        <ul id="navigation">
+            <li  >
+                <a  href="/Accueil/profile"  routerLinkActive="active"> 
+                    <div style="display:flex">
+                        <div>
+                                <svg-icon src="/assets/img/ICONS_Website/ICONES/profil.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                        </div>
+                        <div class="name" style="padding-left: 5%;">
+                            <span style="font-family:open Sans;font-size: 13px;" data-text="Profile">Mon Profile</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li >
+                    <a  href="/Accueil/Calendrier" routerLinkActive="active"> 
+                        <div style="display:flex">
+                            <div>
+                                    <svg-icon src="/assets/img/ICONS_Website/ICONES/calendar.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                                   
+                            </div>
+                            <div class="name" style="padding-left: 5%;">
+                                <span style="font-family:open Sans;font-size: 13px;" data-text="Profile">Calendrier </span>
+                            </div>
+                        </div>
+                  
+                    </a>
+            </li>
+            
+            <li *ngIf="auth.isAdmin()" >
+                <a href="/Accueil/cours" routerLinkActive="active"> 
+                    <div style="display:flex">
+                        <div>
+                                <svg-icon src="/assets/img/ICONS_Website/ICONES/cours.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                        </div>
+                        <div class="name" style="padding-left: 5%;">
+                            <span style="font-family:open Sans;font-size: 13px;" data-text="Profile">Gestion des Cours</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            
+            <li *ngIf="auth.isAdmin()" >
+                <a href="/Accueil/List_presence" routerLinkActive="active"> 
+                    <div style="display:flex">
+                        <div>
+                                <svg-icon src="/assets/img/ICONS_Website/ICONES/cours.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                        </div>
+                        <div class="name" style="padding-left: 5%;">
+                            <span style="font-family:open Sans;font-size: 13px;" data-text="Profile">Liste de présence</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li *ngIf="!auth.isAdmin()" >
+                    <a href="/Accueil/Mescours" routerLinkActive="active"> 
+                        <div style="display:flex">
+                            <div>
+                                    <svg-icon src="/assets/img/ICONS_Website/ICONES/cours.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                            </div>
+                            <div class="name" style="padding-left: 5%;">
+                                <span style="font-family:open Sans;font-size: 13px;" data-text="Profile">Mes Cours</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            
+        
+            <li *ngIf="!auth.isAdmin()">
+                <a  href="/Accueil/Team" routerLinkActive="active"> 
+                    <div style="display:flex">
+                        <div>
+                                <svg-icon src="/assets/img/ICONS_Website/ICONES/projet.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                        </div>
+                        <div class="name" style="padding-left: 5%;">
+                            <span style="font-family:open Sans;font-size: 13px;" data-text="Profile">Projets</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            
+            <li *ngIf="!auth.isAdmin()">
+                <a  href="/Accueil/Lab" routerLinkActive="active"> 
+                    <div style="display:flex">
+                        <div>
+                                <svg-icon src="/assets/img/ICONS_Website/ICONES/lab.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                        </div>
+                        <div class="name" style="padding-left: 5%;">
+                            <span style="font-family:open Sans;font-size: 13px;" data-text="Profile">Le Lab</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li >
+                    <a (click)="Logout()"> 
+                        <div style="display:flex">
+                            <div>
+                                    <svg-icon src="/assets/img/ICONS_Website/ICONES/exit.svg" [svgStyle]="{ 'width.px':16 }"></svg-icon>
+                            </div>
+                            <div class="name" style="padding-left: 5%;">
+                                <span style="font-family:open Sans;font-size: 13px;" data-text="Profile">Se déconnecter</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+          </ul>
+        </div>
+        

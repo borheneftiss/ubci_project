@@ -1,0 +1,48 @@
+<div style="margin-top: 2%;"> 
+    <div style="margin-left: auto; align-items: baseline; display:flex;width: 18%; border-radius: 15px;border: 1px solid grey;height: 25px;">      
+        <div></div>
+        <div style="padding-left: 12%;">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+        </div>    
+    </div>
+        <div >
+            <mat-table [dataSource]="dataSourceP" class="mat-elevation-z8">
+              <ng-container matColumnDef="User_Notification_Title">
+                <mat-header-cell *matHeaderCellDef><h3 style="color:gray">Titre</h3></mat-header-cell>
+                <mat-cell *matCellDef="let qst"> {{qst.User_Notification_Title }} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="User_Notification_Description">
+                <mat-header-cell *matHeaderCellDef><h3 style="color:gray">Description </h3></mat-header-cell>
+                <mat-cell *matCellDef="let qst"> {{qst.User_Notification_Description }}  </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="User_Notification_Date">
+                <mat-header-cell *matHeaderCellDef><h3 style="color:gray">Date </h3></mat-header-cell>
+                <mat-cell *matCellDef="let qst">{{qst.User_Notification_Date }}  </mat-cell>
+              </ng-container>
+              
+              
+
+              <ng-container matColumnDef="ac1">
+                    <mat-header-cell *matHeaderCellDef > </mat-header-cell>
+                    <mat-cell *matCellDef="let qst"  >
+                          <button mat-icon-button matTooltip ="Détails" style="color:#02a365ad" >
+                                  <img src="/assets/img/ICONS_Website/ICONES/view.svg" style="width: 50%;">
+                            </button>
+                            <button mat-icon-button  matTooltip ="Supprimer" style="color: #dd1155"  >
+                                  <img src="/assets/img/icons_UBCI_Enseignant/delete.png">
+                            </button>
+                    </mat-cell>
+                  </ng-container>
+                
+                   
+              <mat-header-row style="background:  #f1f1f1" *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row   *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+          </div>
+          </div> 
+        
+        
+  

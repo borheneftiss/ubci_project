@@ -1,0 +1,29 @@
+<div class="item item-1 boxinput">
+    <!--  <p  class="mat-subheading-2 center">
+          Créez un question.
+        </p>-->
+    <h1 style="color:#06955D">Sélectionner</h1>
+    <form [formGroup]="FormSending" (ngSubmit)="onSubmit()" class="form">
+        <!--Name-->
+        <mat-form-field class="full-width">
+   
+          <textarea matInput placeholder="Message"  formControlName="Description" required></textarea>
+        </mat-form-field>
+        <!--Type-->
+        
+          
+          <mat-form-field class="full-width">
+              <mat-label>Séléctionner Questionnaire</mat-label>
+              <mat-select #fontSize value=""  formControlName="Questionnaire_ID" >
+                  <mat-option *ngFor="let st of questionnaire" [value]="st.Questionnaire_ID">
+                      {{st.Name}}
+                    </mat-option>
+              </mat-select>
+            </mat-form-field>
+          
+         <!--Status-->
+
+         <button mat-raised-button type="submit" style="background: #de6e43;float: right;" color="primary" >Enregistrer</button>
+    <button mat-raised-button type="reset"   style="background: #d0c310" color="primary" (click)="onClose()">Annuler</button>
+         </form>
+    </div>

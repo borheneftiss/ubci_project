@@ -1,0 +1,60 @@
+table, th, td {
+    border: 1px solid #dddddd;
+ }
+ .boxinput {
+   
+    margin-top: 3%;
+    margin:0 auto;
+  }
+  .flex-container {
+    display: flex; /* or inline-flex */
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .item {
+    flex-basis: auto; /* default auto */
+  }
+  .full-width {
+    width: 100%;  
+  }
+
+ .zone{
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    border-radius: 25px!important;
+    padding: 30px!important;
+    margin: 40px 0!important;
+    flex-direction: column;
+ }
+ .spanload{
+    Color: #cabebe;
+    font-size: large;
+ }
+ .uploadCours{
+    height: 77px;
+    width: 85px;
+    background-color: red;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .uploadCours{
+    height: 77px;
+    width: 85px;
+    background-color:#4dababc7;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .uploadVideo{
+    height: 77px;
+    width: 85px;
+    background-color: #c76917c7;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }

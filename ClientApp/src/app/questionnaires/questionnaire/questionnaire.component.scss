@@ -1,0 +1,29 @@
+.flex-container {
+  display: flex; /* or inline-flex */
+  flex-direction: column ;
+  justify-content: center;
+  align-items: center;
+}
+.item {
+  flex-basis: auto; /* default auto */
+}
+.classAdd{
+  margin-top: 16px;
+  float: right;
+}
+table {
+  width: 100%;
+}
+.grid-container {  
+
+  margin: 20px;  
+
+}  
+
+mat-row:nth-child(even){
+  background-color:rgb(200, 247, 200);;
+  }
+
+mat-row:nth-child(odd){
+  background-color:white
+  }

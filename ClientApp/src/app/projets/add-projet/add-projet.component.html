@@ -1,0 +1,51 @@
+<div class="item item-1 boxinput">
+ 
+    <h1 style="color:#06955D">Ajouter un projet</h1>
+
+   <mat-card style="max-width:100%" class="center">
+    <!--Form QST-->
+    <form [formGroup]="ProjectForm" (ngSubmit)="onSubmitPrix()" class="form">
+      <!--Name-->
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Titre" value="" formControlName="Projet_Name" required [errorStateMatcher]="matcher" >
+     
+      </mat-form-field>
+     <!--DateFin-->
+     <mat-form-field class="full-width" >
+        <input matInput [matDatepicker]="pickerD" placeholder="Date de Début" formControlName="Projet_Date_Debut" required >
+        <mat-datepicker-toggle matSuffix [for]="pickerD"></mat-datepicker-toggle>
+        <mat-datepicker #pickerD [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="full-width" >
+        <input matInput [matDatepicker]="pickerCD" placeholder="Date de clôture" formControlName="Projet_Date_Cloture" required>
+        <mat-datepicker-toggle matSuffix [for]="pickerCD"></mat-datepicker-toggle>
+        <mat-datepicker #pickerCD [startAt]="startDate"></mat-datepicker>
+       
+       
+    
+    </mat-form-field>
+    <mat-error class="error-message" *ngIf="checkDate(ProjectForm)">La date de clôture doit étre supérieur au date de début
+  </mat-error>
+  <mat-form-field class="full-width">
+    <mat-label>Catégorie</mat-label>
+    <mat-select #fontSize value="16px" formControlName="Categorie_Id" >
+        <mat-option *ngFor="let st of listCategorie" [value]="st.Categorie_Id">
+            {{st.Categorie_Name}}
+          </mat-option>
+    </mat-select>
+  </mat-form-field>
+    <mat-form-field class="full-width">
+          
+        <textarea matInput placeholder="Description" value=""  formControlName="Projet_Description"></textarea>
+    </mat-form-field>
+  
+
+
+  <br/>
+    <div>
+    <button mat-raised-button type="submit" style="background: #d0c310;float: right;" color="primary" [disabled]="!ProjectForm.valid">Enregistrer</button>
+    <button mat-raised-button type="reset"  style="background: #f27421" (click)="CloseProject()" color="primary">Annuler</button>
+  </div>
+      </form>
+      </mat-card>
+      </div>

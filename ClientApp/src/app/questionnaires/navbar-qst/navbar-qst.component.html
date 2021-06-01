@@ -1,0 +1,27 @@
+
+
+
+
+<mat-toolbar class="toolbar" color="primary">
+    <div><img style="width:95px;" src="assets/img/icone_menu_dashboard/logo.svg" routerLink="/home"></div>
+    <div style="margin-left: auto">
+    <button *ngIf="auth.isLoggednIn()" style="font-family: Roboto" mat-button [matMenuTriggerFor]="profile"> <img src="assets/img/icone_menu_dashboard/user_1.svg" class="img_user_1">
+    </button>
+    <mat-menu #profile="matMenu">
+        <span mat-menu-item style="font-family: Roboto;color: #285a4f">{{Name}} {{lastName}}</span>
+        <button mat-menu-item (click)="Logout()" routerLinkActive="active"><b style="font-family: Roboto;color: #285a4f">se déconnecter</b></button>
+    </mat-menu>
+
+</div>
+        
+        <!-- <div><button mat-menu-item (click)="Logout()" routerLinkActive="active"><img src="assets/img/logout.png" style="height: 20px;">Logout</button></div> -->
+        
+       
+        
+          
+
+</mat-toolbar>
+
+
+
+

@@ -1,0 +1,10 @@
+export class User {
+  constructor(
+    public User_Email: string,
+    public User_LastName: string,
+    public User_Name: string,
+    public User_Password: string,
+    public Diplome_Id: number,
+    public Etablissement_Id: number
+  ) {}
+}

@@ -1,0 +1,31 @@
+<div *ngIf="!Show" class="row" class="nav-off" style="margin-bottom:0px;float:right;height:25px;display: flex; ">
+  
+    <p style="font-family: openlight;font-size:12px;margin-top: 6px;margin-right:5px">Site également consultable sur mobile ! </p>
+    <img src="assets/img/close.png" alt="close" (click)="NotShow()" style="cursor:pointer"  >
+
+    
+  </div>
+
+<div class="row" style="margin-bottom:0px;height:43px;justify-content: space-between;top:1%; width:100%; z-index:2;margin-left: auto;display: flex;background-color: #dcddde">
+   
+  <div style="display:flex" class="col l6 m6 s6 cnx-bar">
+    <img src="assets/img/log_ubci .svg" class="logo_ubci"  alt="logo" style='height:50px;' routerLink="/home">
+    <img src="assets/img/ui.svg" alt="Home" style=" margin-left: 3px;" routerLink="/home">
+    
+    <div class="second-header-hr" style="margin-top: 15px; width: 2px; background-color:#6f6565; height: 20px; margin-left: 52px;"></div>
+    <img class="second-header" alt="lab" src="assets/img/lab.svg" style="margin-left: 2%;" routerLink="/home">
+  
+  </div>
+    
+    <div  class="col l6 m6 s6 cnx-bar">
+        <a  routerLink="/login" class="cnx-btn"  mat-button  >
+          <img src="assets/img/user11.png" alt="user"   style="margin-right: 11px;margin-top: -4px;width: 18%;">
+          <span>Connexion</span>
+          
+        </a>
+       
+      </div>
+
+
+  </div>
+  

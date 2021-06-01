@@ -1,0 +1,36 @@
+<!--Table DE LISTE DE PRESENCE-->
+<div style="padding-top:2%">
+  <label style="font-family: Roboto;font: size 18px;color: gray;font-size: 20px;">Liste de présence</label>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" style="font-family: Roboto;">
+      <!-- Nom Column -->
+      <ng-container matColumnDef="Titre_cours">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 15px"> Intitulé du Cours </th>
+        <td mat-cell *matCellDef="let element"> {{element.Titre_cours}} </td>
+      </ng-container>
+
+      <!-- Prénom Column -->
+      <ng-container matColumnDef="list_presence">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 15px"> List de Présence </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 15px"> {{element.list_presence}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="Ajout_par">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 15px"> Ajouté Par </th>
+        <td style="font-weight: bold;" mat-cell *matCellDef="let element"> {{element.Ajout_par}} </td>
+      </ng-container>
+
+      <!-- Téléphone Column -->
+      <ng-container matColumnDef="Date_Ajout">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 15px"> Date d'ajout </th>
+        <td mat-cell *matCellDef="let element"> {{element.Date_Ajout}} </td>
+      </ng-container>
+
+      <tr style="background: #f1f1f1;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+
+

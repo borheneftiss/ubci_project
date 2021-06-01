@@ -1,0 +1,29 @@
+<app-navbar-conn-inscri></app-navbar-conn-inscri>
+<div class="item item-1 boxinput">
+  <mat-card>
+    <h3 style="color:#06955D">Connexion à votre espace personnel</h3>
+    <!--Username or email-->
+    <form [formGroup]="loginForm" class="example-form" >
+      <mat-form-field class="example-full-width ">
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="formErrors.email" class="help is-danger">
+          {{formErrors.email}}
+        </mat-error>
+      </mat-form-field>
+      <!--Password-->
+      <!-- <mat-form-field class="example-full-width">
+        <input matInput placeholder="Mot de passe" formControlName="Password">
+      </mat-form-field> -->
+      <mat-form-field class="example-full-width">
+        <input matInput  placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" formControlName="Password">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="formErrors.Password" class="help is-danger">
+          {{formErrors.Password}}
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <strong class="resetpassword">Mot de passe oublié ?</strong>
+    <!--Submit button-->
+    <button mat-raised-button (click)="onSubmit()" type="submit" style="background: #06955D" color="primary">Connexion</button>
+  </mat-card>
+</div>

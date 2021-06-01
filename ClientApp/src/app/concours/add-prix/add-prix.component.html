@@ -1,0 +1,30 @@
+<div class="item item-1 boxinput">
+    <!--  <p  class="mat-subheading-2 center">
+          Créez un réponse.
+        </p>-->
+      <h2 style="color:#06955D">Créez un prix</h2>
+   
+        
+      <!--Form QST-->
+      <form [formGroup]="PrixForm" (ngSubmit)="onSubmitPrix()" class="form">
+        <!--Name-->
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Text" value="" formControlName="Prix_Valeur" [errorStateMatcher]="matcher">
+       
+        </mat-form-field>
+      
+        <mat-form-field class="full-width">
+            <mat-label>Type</mat-label>
+            <mat-select #fontSize value="16px" formControlName="PrixType_Id" >
+                <mat-option *ngFor="let st of Types" [value]="st.PrixType_Id">
+                    {{st.PrixType_Libelle}}
+                  </mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+         <!--Submit button-->
+      <button mat-raised-button type="submit" style="background: #06955D;float: right;" color="primary">Enregistrer</button>
+      <button mat-raised-button type="reset"  style="background: #06955D" color="primary" (click)="onClose()">Annuler</button>
+      </form>
+  
+  </div>

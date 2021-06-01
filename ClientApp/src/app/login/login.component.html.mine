@@ -1,0 +1,26 @@
+<app-navbar-conn-inscri></app-navbar-conn-inscri>
+<div class="item item-1 boxinput">
+  <mat-card>
+    <h3 style="color:#06955D">Connexion à votre espace personnel</h3>
+    <!--Username or email-->
+    <form [formGroup]="loginForm" class="example-form" >
+      <mat-form-field class="example-full-width ">
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!--Password-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Mot de passe" formControlName="Password">
+      </mat-form-field>
+    </form>
+    <strong class="resetpassword">Mot de passe oublié ?</strong>
+    <!--Submit button-->
+    <button mat-raised-button (click)="onSubmit()" type="submit" style="background: #06955D" color="primary">Connexion</button>
+  </mat-card>
+</div>
